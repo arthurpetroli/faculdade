@@ -9,6 +9,7 @@ Fibonacci, sendo que n é recebido por parâmetro. Utilize essa função para
 desenvolver um programa que mostre no main() os n termos dessa
 sequência na tela, a partir do valor de n recebido pelo teclado. Sabe-se que
 o 1º termo é 0 e o 2º termo é 1.
+a
 */
 
 /** determinação das bibliotecas */
