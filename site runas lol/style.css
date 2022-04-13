@@ -1,0 +1,29 @@
+h1{
+    color : #B2D732;
+    background-color : #C21460;
+    text-align : center;
+    border-radius: 20px;
+    /*padding: 10px;*/
+    box-shadow: 10px 10px 10px rgb(0,0,0);
+  }
+  
+  body{
+    color : #34091C;
+    text-align : center;
+    background-color : #F0F7D4;
+  }
+  
+  .meudestaque{
+    color : #B8145B;
+  }
+  
+  #unico{
+    color : #8A2BE2;
+   }
+  
+  img{
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgb(0,0,0);
+    width: 500px;
+    height: 300px;
+  }
