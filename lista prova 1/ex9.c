@@ -9,7 +9,6 @@ Fibonacci, sendo que n é recebido por parâmetro. Utilize essa função para
 desenvolver um programa que mostre no main() os n termos dessa
 sequência na tela, a partir do valor de n recebido pelo teclado. Sabe-se que
 o 1º termo é 0 e o 2º termo é 1.
-a
 */
 
 /** determinação das bibliotecas */
@@ -17,17 +16,15 @@ a
 #include <stdlib.h>
 
 /** funçao onde calcula fibonacci */
-int Sla(int numero, float total)
+float Sla(int numero)
 {
-    total += Sla((1+(numero*numero))/numero);
-
     if (numero == 0)
     {
-        return total;
+        return 0;
     }
     else if (numero > 0)
     {
-        return Sla((1+(numero-1*numero-1))/numero-1); 
+        return ((1.00+(numero*numero))/numero) + Sla(numero-1.00); 
     }
 
 }
@@ -37,14 +34,16 @@ int main()
 {
     int numero = 0;
     float total = 0;
+    float retorno = 0;
+
 /** informaçao do cliente */
     printf("Digite um numero: ");
     scanf("%d", &numero);
 
 /** chamando a funçao */
-    int retorno = Sla(numero,total);
+    retorno = Sla(numero);
 
-    printf("%d\n", retorno);
+    printf("%f\n",retorno);
     
     return 0;
 }
