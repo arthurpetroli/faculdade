@@ -2,7 +2,7 @@
  * @file ex4.c
  * @author Arthur Petroli
  * @brief Escreva uma função que receba como parâmetro um valor L e um valor C e retorne
-o ponteiro para uma matriz alocada dinamicamente contendo L linhas e C colunas.
+o ponteiro para uma matriz alocada dinamicamente contendo L linhas e C colunas..
 Essa matriz deve ser inicializada com o valor 0 em todas as suas posições.
  * @version 0.1
  * @date 2022-05-08
