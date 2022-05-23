@@ -33,6 +33,9 @@ int main(){
     }
 
     strcpy(texto3,fgets(texto1,100,prog));
+    strcat(texto3,fgets(texto1,100,prog));
+
+    strcat(texto3,"\n");
 
     printf("Insira o nome do segundo arquivo: ");
     fgets(texto2,21,stdin);
@@ -45,6 +48,7 @@ int main(){
         exit(1); //finaliza o programa
     }
 
+    strcat(texto3,fgets(texto2,100,prog));
     strcat(texto3,fgets(texto2,100,prog));
 
     prog = fopen("cleber.txt","w");

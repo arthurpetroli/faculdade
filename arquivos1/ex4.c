@@ -17,7 +17,7 @@
 
 int main(){
     FILE *prog;
-    char texto1[100];
+    char texto1[100],c;
     int vezes=0;
 
     printf("Insira o nome do arquivo: ");
@@ -31,18 +31,19 @@ int main(){
         exit(1); 
     }
 
-    char c = fgetc(prog);
-
-    while (c != EOF)
+    while ((c = fgetc(prog)) != EOF)
     {
         if (c == ' ')
         {
             vezes++;
         }
-        c = fgetc(prog);
+        if (c == '\n')
+        {
+            vezes++;
+        }
     }
 
-    printf("\nPalavras: %i\n",vezes + 1);
+    printf("\nPalavras: %i\n",vezes);
     
     fclose(prog);
     

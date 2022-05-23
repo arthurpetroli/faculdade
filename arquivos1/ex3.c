@@ -20,7 +20,7 @@ int main(){
     FILE *prog;
     char texto1[100],texto2[100],nome2[100],c;
     int resultado;
-    int i;
+    int i=0;
 
     printf("Insira o nome do primeiro arquivo: ");
     fgets(texto1,21,stdin);
@@ -34,10 +34,8 @@ int main(){
     }
 
     while ((c = fgetc(prog))  != EOF) {
-        for (size_t i = 0; i < strlen(texto1); i++)
-        {
-            texto2[i] = toupper(c);
-        }
+        texto2[i] = toupper(c);
+        i++;
     }
 
     printf("Insira em qual arquivo que mandar: ");
