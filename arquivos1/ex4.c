@@ -16,35 +16,44 @@
 #include <string.h>
 
 int main(){
+
+    //definiçao de variaveis
     FILE *prog;
     char texto1[100],c;
     int vezes=0;
 
+    //pede para o usuario o nome do arquivo que quer acessar
     printf("Insira o nome do arquivo: ");
     fgets(texto1,21,stdin);
     texto1[strcspn(texto1,"\n")] = '\0';
     setbuf(stdin, NULL);
 
+    //abrindo o arquivo para leitura
     prog = fopen(texto1,"r");
     if(prog == NULL){
         printf("Erro na abertura do arquivo");
         exit(1); 
     }
 
+    //enquanto nao acabar o programa ele conta quantas palavras tem no arquivo
     while ((c = fgetc(prog)) != EOF)
     {
+        //quantos espaços tem no arquivo
         if (c == ' ')
         {
             vezes++;
         }
+        //quantos linhas tem no arquivo
         if (c == '\n')
         {
             vezes++;
         }
     }
 
+    //quantidade de palavras que tem no arquivo
     printf("\nPalavras: %i\n",vezes);
     
+    //fecha o arquivo
     fclose(prog);
     
 }
