@@ -17,17 +17,23 @@
 #include <ctype.h>
 
 int main(){
+
+    //definiçao de variaveis
     FILE *prog;
     int texto1[100];
 
+    //gera 100 numeros aleatorios e joga em texto1
     for (size_t i = 0; i < 100; i++)
     {
         texto1[i] = rand() % 1000;
     }
 
+    //abrindo o arquivo para escrita
     prog = fopen("numeros.bin","wb");
 
+    //escreve os 100 numeros de texto1 no arquivo 
     fwrite(texto1,sizeof(int),100,prog);
     
+    //fecha o programa
     fclose(prog);
 }

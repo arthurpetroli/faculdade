@@ -17,6 +17,7 @@
 #include <string.h>
 #include <ctype.h>
 
+//criaçao da estrutura atleta
 typedef struct
 {
     char nome[20];
@@ -26,10 +27,12 @@ typedef struct
 }atleta;
 
 int main(){
+
+    //definiçao de variaveis
     FILE * prog;
     atleta atletas[5];
 
-
+    //faz o prenchimentos das variaveis atravez de repetiçao pedindo para o usuario as informaçoes
     for (size_t i = 0; i < 5; i++)
     {
         printf("Digite o nome do atleta:\n");
@@ -50,9 +53,12 @@ int main(){
         setbuf(stdin,NULL);
     }
 
+    //abrindo o arquivo para escrita
     prog = fopen("atletas.bin","wb");
 
+    //escreve as informaçoes de atletas no arquivo 
     fwrite(atletas,sizeof(atleta),5,prog);
    
+    //fecha o arquivo
     fclose(prog);
 }

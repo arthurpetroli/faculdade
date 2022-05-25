@@ -17,6 +17,7 @@
 #include <string.h>
 #include <ctype.h>
 
+//criaçao da estrutura atleta
 typedef struct
 {
     char nome[20];
@@ -26,14 +27,19 @@ typedef struct
 }atleta;
 
 int main(){
+
+    //definiçao de variaveis
     FILE * prog;
     atleta atletas[5];
     int maior,maisVelho,auxMaior,auxMaisVelho;
 
+    //abrindo o arquivo para leitura
     prog = fopen("atletas.bin","rb");
 
+    //le as informaçoes presentes no arquivo
     fread(atletas,sizeof(atleta),5,prog);
 
+    //usado pora percorrer todos as informaçoes de atleta e decidir qual o maior e mais velho
     for (size_t i = 0; i < 5; i++)
     {
         if (maior < atletas[i].altura)
@@ -49,8 +55,12 @@ int main(){
         } 
     }
 
+    //mostra o maior atleta
     printf("O nome do atleta maior e: %s\n",atletas[auxMaior].nome);
+
+    //mostra o atleta mais velho
     printf("O nome do atleta mais velho e: %s\n",atletas[auxMaisVelho].nome);
     
+    //fecha o arquivo
     fclose(prog);
 }

@@ -1,5 +1,5 @@
 /**
- * @file ex4.c
+ * @file ex5.c
  * @author Arthur Henrique de Oliveira Petroli (arthurpetroli@gmail.com)
  * @brief Crie uma estrutura representando um ranking. Essa
     estrutura deve conter o nome do jogador e sua pontuação.
@@ -18,6 +18,7 @@
 #include <string.h>
 #include <ctype.h>
 
+//criaçao da estrutura rankings
 typedef struct
 {
     char nome[20];
@@ -25,9 +26,12 @@ typedef struct
 }ranking;
 
 int main(){
+
+    //definiçao de variaveis
     FILE * prog;
     ranking rankings[5];
 
+    //faz o prenchimentos das variaveis atravez de repetiçao pedindo para o usuario as informaçoes
     for (size_t i = 0; i < 5; i++)
     {
         printf("Digite o nome do atleta:\n");
@@ -40,13 +44,16 @@ int main(){
         setbuf(stdin,NULL);
     }
 
+    //abrindo o arquivo para escrita
     prog = fopen("rankings.bin","wb");
 
+    //insere as informaçoes de ranking no arquivo
     for (size_t i = 0; i < 5; i++)
     {
         fprintf(prog,"%s\n", rankings[i].nome);
         fprintf(prog,"%i\n\n", rankings[i].pontuacao); 
     }
     
+    //fecha o arquivo
     fclose(prog);
 }
