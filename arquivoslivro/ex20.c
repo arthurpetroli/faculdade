@@ -13,35 +13,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "atleta.h"
 #define MAX_COUNT 2
-
-typedef struct
-{
-    char nome[20];
-    char esporte[20];
-    int idade;
-    float altura;
-}atleta;
 
 int main(){
     FILE *prog;
     atleta atletas[MAX_COUNT];
+    int maisVelho,maisAlto,auxVelho,auxAlto;
     
     prog = fopen("atletas.dat","rb");
 
+    fread(atletas,sizeof(atleta),2,prog);
+    
     for (size_t i = 0; i < MAX_COUNT; i++)
     {
-        fscanf(prog,"%s\n", atletas[i].nome);
-        fscanf(prog,"%s\n", atletas[i].esporte);
-        fscanf(prog,"%i", &atletas[i].idade);
-        fscanf(prog,"%f", &atletas[i].altura);
-    
-        printf("Nome: %s\n", atletas[i].nome);
-        printf("Esporte: %f", atletas[i].esporte);
-        printf("Idade: %i", atletas[i].idade);
-        printf("Altura: %.2f", atletas[i].altura);
+        if (maisVelho < atletas[i].idade)
+        {
+            maisVelho = atletas[i].idade;
+            auxVelho = i;
+        }
 
-        fclose(prog);
+        if (maisAlto < atletas[i].altura)
+        {
+            maisAlto = atletas[i].altura;
+            auxAlto = i;
+        }
     }
     
+    printf("O nome do atleta mais velho e: %s\n",atletas[auxVelho].nome);
+    printf("O nome do atleta mais alto e: %s\n",atletas[auxAlto].nome);
+
+    fclose(prog);
 }

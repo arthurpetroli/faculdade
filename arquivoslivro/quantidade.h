@@ -1,0 +1,1 @@
+int palavra(FILE *prog,int quant,char arquivo[20])

@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "matriz.c"
+
 
 int main(){
     FILE *prog;
@@ -22,26 +24,7 @@ int main(){
 
     int matriz[tamanho][tamanho];
 
-    for (size_t i = 0; i < tamanho; i++)
-    {
-        for (size_t j = 0; j < tamanho; j++)
-        {
-            printf("Digite os valores da matriz[%i][%i]: ",i+1,j+1);
-            scanf("%i",&matriz[i][j]);
-        }
-    }
-
-    prog = fopen("matriz.txt","w");
-
-    for (size_t i = 0; i < tamanho; i++)
-    {
-        for (size_t j = 0; j < tamanho; j++)
-        {
-            fprintf(prog,"%i",matriz[i][j]);
-            fputs("  ",prog);
-        }
-        fputs("\n",prog);
-    }
+    matrizs(matriz[tamanho][tamanho],tamanho,prog);
     
     fclose(prog);
 }

@@ -13,14 +13,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "atleta.h"
 #define MAX_COUNT 2
-typedef struct
-{
-    char nome[20];
-    char esporte[20];
-    int idade;
-    float altura;
-}atleta;
+
 
 int main(){
     FILE *prog;
@@ -48,14 +43,7 @@ int main(){
 
     prog = fopen("atletas.dat","wb");
 
-    for (size_t i = 0; i < MAX_COUNT; i++)
-    {
-        fprintf(prog,"%s  ", atletas[i].nome);
-        fprintf(prog,"%s  ", atletas[i].esporte);
-        fprintf(prog,"%i  ", atletas[i].idade);
-        fprintf(prog,"%.2f  ", atletas[i].altura);
-        fputs("\n",prog);
-    }
+    fwrite(atletas,sizeof(atleta),2,prog);
     
     fclose(prog);
 }

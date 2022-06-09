@@ -1,0 +1,1 @@
+int vogal(FILE *prog,char arquivo[20],int vogais)
