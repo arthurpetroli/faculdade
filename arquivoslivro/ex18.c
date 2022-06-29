@@ -38,7 +38,7 @@ int main(){
     }
 
     printf("Maior numero: %i\n",numeroMaior);
-    printf("Menor numero: %i",numeroMenor);
+    printf("Menor numero: %i\n",numeroMenor);
 
     fclose(prog);
     
