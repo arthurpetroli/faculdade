@@ -2,26 +2,6 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: gcc.exe arquivo de build ativo",
-            "command": "C:\\MinGW\\bin\\gcc.exe",
-            "args": [
-                "-fdiagnostics-color=always",
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
-            ],
-            "options": {
-                "cwd": "${fileDirname}"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": "build",
-            "detail": "Tarefa gerada pelo Depurador."
-        },
-        {
-            "type": "cppbuild",
             "label": "C/C++: gcc-11 arquivo de build ativo",
             "command": "/usr/bin/gcc-11",
             "args": [

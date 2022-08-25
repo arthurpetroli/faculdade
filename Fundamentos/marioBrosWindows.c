@@ -6,7 +6,6 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
-#include <linux.h>
 
 int main() {
   //Toca a música do Mario Bros

@@ -17,9 +17,9 @@ quantidade de dias que ele possui.
 typedef enum {janeiro=1, fevereiro, marco, abril, maio, junho, julho, agosto, setembro, outubro, novembro, dezembro} meses;
 
 int main(){
-    meses mes;
+    meses mes;  
 
-    int mesdigitado;
+    int mesdigitado;        
 
     printf("Digite um valor inteiro de 1 a 12:\n");
     scanf("%i",&mesdigitado);
