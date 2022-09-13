@@ -22,6 +22,7 @@ main:
     bne	$t3, $t4, errado2
     
 	move $t2,$t4
+	li $v0, 1
     move $a0,$t2
 	syscall
 	li $v0, 10
@@ -32,7 +33,7 @@ main:
 	li $v0, 1
 	syscall
 	li $v0, 10
-	syscall
+	syscall 
     
 errado2:  
 

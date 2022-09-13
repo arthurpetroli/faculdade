@@ -13,9 +13,9 @@ main:
     lw	$t2, 156($sp)
 
     add	$t3, $t1, $t2
-    sw	$t3, 398($sp)
+    sw	$t3, 396($sp)
 
-    lw	$t3, 398($sp)
+    lw	$t3, 396($sp)
 	li $v0, 1
 	syscall
 

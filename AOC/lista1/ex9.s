@@ -16,8 +16,8 @@ main:
 	#chamada de sistema para imprimir resultado
 
 	slt $t3,$t1,$t2
-    bne	$t3, $t1, errado
-    
+    bne	$t3, $t4, errado
+	
 	move $t2,$t1
     move $a0,$t2
 	syscall
