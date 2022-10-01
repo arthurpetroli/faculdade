@@ -112,12 +112,10 @@ noArvore *buscarPai(noArvore **no, int chave){
 bool excluirElemento(noArvore **no, int chave){
     noArvore *pai=buscarPai(no, chave);
 
-    if (estaVazia(no)==true)
+    if (estaVazia(*no)==true)
     {
         return false;
     }
-
-    
 }
 
 int main() {
@@ -137,7 +135,7 @@ int main() {
         printf("\nElemento encontrado");
     }
 
-    excluirElemento((&raiz, 2)==true){
+    if(excluirElemento(&raiz, 2) == true){
         printf("\nElemento excluido");
     }else{
         printf("\nFalha ao excluir elemento");
