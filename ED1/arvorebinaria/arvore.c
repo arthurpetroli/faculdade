@@ -1,149 +1,228 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <time.h>
 
-typedef struct noArv {
+
+typedef struct  noArvore
+{
     int chave;
-    struct noArv *esq;
-    struct noArv *dir;
-} noArvore;
+    struct  noArvore* dir;    
+    struct  noArvore* esq;  
+}NoArvore;
 
-int estaVazia(noArvore *raiz) {
-    return raiz == NULL;
+
+
+
+NoArvore* inicializaArvore(){
+    return NULL;
 }
 
-void inicializa(noArvore **no) {
-    (*no) = NULL;
+bool estaVazia(NoArvore** no){
+    return((*no)==NULL);
 }
 
-void inserir (noArvore **no, int chave) {
-    if (*no == NULL)
-    {
-        *no = (noArvore *) malloc(sizeof(noArvore));
-        (*no)->chave = chave;
-        (*no)->esq = NULL;
-        (*no)->dir = NULL;
+void insereArvore(NoArvore **no, int chave){
+    if((*no)==NULL){
+        (*no)=(NoArvore*) malloc(sizeof(NoArvore));
+        (*no)->chave=chave;
+        (*no)->dir=(*no)->esq=NULL;
         return;
     }
-    else if ((*no)->chave == chave )
-    {
-        printf("\n Este elemento ja existe %d", chave);
+   if((*no)->chave == chave){
+        printf("\nElemento repetido");
         return;
     }
-    
-
-    if (chave < (*no)->chave)
-    {
-        inserir(&(*no)->esq, chave);
-    }else{
-        inserir(&(*no)->dir, chave);
-    }
-        
-    
-    
+    (*no)->chave > chave ? insereArvore(&((*no)->esq),chave): insereArvore(&((*no)->dir), chave);
 }
 
-void imprimirEmOrdem(noArvore **no){
-    if (estaVazia(*no))
-    {
-        return;
-    }
-    
-    imprimirEmOrdem(&(*no)->esq);
-    printf("\n%d",(*no)->chave);
-    imprimirEmOrdem(&(*no)->dir);
+void imprimeEmOrdem(NoArvore **no){
+    if(*no==NULL) return;
+    imprimeEmOrdem(&((*no)->esq));
+    printf("\n--> %d ", (*no)->chave);
+    imprimeEmOrdem(&((*no)->dir));
 }
 
-void destruirArvore(noArvore **no){
-    if (estaVazia(*no))
-    {
-        return;
-    }
-
-    destruirArvore(&(*no)->esq);
-    destruirArvore(&(*no)->dir);
+void destroiArvore(NoArvore **no){
+    if((*no)==NULL) return;
+    destroiArvore(&((*no)->esq)); 
+    destroiArvore(&((*no)->dir));
     free(*no);
-    (*no) = NULL;
+    (*no)=NULL;
 }
 
-noArvore *buscarElemento(noArvore **no, int chave){
-    if (estaVazia(*no))
+NoArvore* maiorNoSubArvEsq(NoArvore **no){
+    if((*no)->dir==NULL){ 
+        NoArvore* aux = (*no);
+        if((*no)->esq!=NULL){
+            *no = (*no)->esq;
+            return (aux);
+        }else{
+            *no=NULL;
+            return (aux);
+        }
+        
+        return (aux);
+    }    
+    return maiorNoSubArvEsq(&(*no)->dir);
+}
+
+NoArvore *menorNoSubArvDir(NoArvore **no){
+    if((*no)->esq==NULL){
+        NoArvore *aux=*no;
+        if((*no)->dir!=NULL){
+            *no=(*no)->dir;
+        }
+        else{
+           *no=NULL;
+           return aux; 
+        } 
+        return aux;
+    }
+    return menorNoSubArvDir(&(*no)->esq);
+}
+
+void excluiElemDir(NoArvore **no, int chave){
+    if(*no==NULL){
+        printf("\n\n------------\n\n\t Chave nao encontrada \n\n----------------\n");
+        return;
+    }
+    if((*no)->chave == chave){
+        if((*no)->esq== NULL && (*no)->dir==NULL){
+           free(*no);
+           (*no)=NULL; 
+           return;
+        }
+        if((*no)->esq== NULL){
+            NoArvore *remove=*no;
+            *no= (*no)->dir; 
+            free(remove);
+            return;
+        }
+        if((*no)->dir== NULL){
+            NoArvore *remove=*no;
+            *no= (*no)->esq; 
+            free(remove);
+            return;
+        }
+        //NoArvore *elem = maiorNoSubArvEsq(&(*no)->esq); ou
+        NoArvore *elem = maiorNoSubArvEsq(&(*no)->dir);    
+        NoArvore *remove=*no;
+        elem->dir=(*no)->dir;
+        elem->esq=(*no)->esq;
+        *no= elem; 
+        free(remove);
+        return;   
+
+    }
+    if((*no)->chave > chave){
+        excluiElemDir(&(*no)->esq, chave);
+    }
+    
+    else excluiElemDir(&(*no)->dir, chave);
+}
+
+void excluiElemEsq(NoArvore **no, int chave){
+    if(*no==NULL){
+        printf("\n\n------------\n\n\t Chave nao encontrada \n\n----------------\n");
+        return;
+    }
+    if((*no)->chave == chave){
+        if((*no)->esq== NULL && (*no)->dir==NULL){
+           free(*no);
+           (*no)=NULL; 
+           return;
+        }
+        if((*no)->esq== NULL){
+            NoArvore *remove=*no;
+            *no= (*no)->dir; 
+            free(remove);
+            return;
+        }
+        if((*no)->dir== NULL){
+            NoArvore *remove=*no;
+            *no= (*no)->esq; 
+            free(remove);
+            return;
+        }
+        //NoArvore *elem = maiorNoSubArvEsq(&(*no)->esq); ou
+        NoArvore *elem = menorNoSubArvDir(&(*no)->esq);    
+        NoArvore *remove=*no;
+        elem->dir=(*no)->dir;
+        elem->esq=(*no)->esq;
+        *no= elem; 
+        free(remove);
+        return;   
+
+    }
+    if((*no)->chave > chave){
+        excluiElemDir(&(*no)->esq, chave);
+    }
+    
+    else excluiElemDir(&(*no)->dir, chave);
+}
+
+NoArvore* buscarElem(NoArvore **no, int chave){
+    if (*no == NULL)
     {
         return NULL;
     }
-    
     if ((*no)->chave == chave)
     {
         return *no;
     }
-    if (chave < (*no)->chave)
+    if ((*no)->chave > chave)
     {
-        return buscarElemento(&(*no)->esq, chave);
+        return buscarElem(&(*no)->esq, chave);
     }else{
-        return buscarElemento(&(*no)->dir, chave);
+        return buscarElem(&(*no)->dir, chave);
     }
-    
+      
 }
 
-noArvore *buscarPai(noArvore **no, int chave){
-    static noArvore *pai = NULL;
-    if (estaVazia(*no))
-    {
-        return NULL;
-    }
+int main(void){
+
+    NoArvore *raiz = inicializaArvore();
+
+    insereArvore(&raiz, 10);
+
     
-    if ((*no)->esq != NULL && (*no)->esq->chave == chave)
-    {
-        return *no;
-    }
-    if ((*no)->dir != NULL && (*no)->dir->chave == chave)
-    {
-        return *no;
-    }
-    if (chave < (*no)->chave)
-    {
-        return buscarPai(&(*no)->esq, chave);
+   
+    insereArvore(&raiz, 15);
+    insereArvore(&raiz, 13);
+    insereArvore(&raiz, 16);
+    insereArvore(&raiz, 12);
+    insereArvore(&raiz, 14); 
+
+    insereArvore(&raiz, 5);
+    insereArvore(&raiz, 3);
+    insereArvore(&raiz, 7);
+    insereArvore(&raiz, 6);
+
+    insereArvore(&raiz, 2);
+    insereArvore(&raiz, 20);
+
+    printf("\n\n-----------------INICIO------------------\n\n");
+    imprimeEmOrdem(&raiz);
+    printf("\n\n-----------------FIM------------------\n\n");
+
+    excluiElemDir(&raiz, 10);
+
+    if(buscarElem(&raiz, 5)!= NULL){
+        printf("Esta presente");
     }else{
-        return buscarPai(&(*no)->dir, chave);
-    }
-    
-}
-
-bool excluirElemento(noArvore **no, int chave){
-    noArvore *pai=buscarPai(no, chave);
-
-    if (estaVazia(*no)==true)
-    {
-        return false;
-    }
-}
-
-int main() {
-    noArvore *raiz;
-    inicializa(&raiz);
-    inserir(&raiz, 14);
-    inserir(&raiz, 18);
-    inserir(&raiz, 20);
-    inserir(&raiz, 16);
-    inserir(&raiz, 11);
-
-    imprimirEmOrdem(&raiz);
-
-    if(buscarElemento(&raiz, 13)==NULL){
-        printf("\nElemento nao encontrado");
-    }else{
-        printf("\nElemento encontrado");
+        printf("Nao esta presente");
     }
 
-    if(excluirElemento(&raiz, 2) == true){
-        printf("\nElemento excluido");
-    }else{
-        printf("\nFalha ao excluir elemento");
-    }
+    printf("\n\n-----------------Inicio------------------\n\n");
+    imprimeEmOrdem(&raiz);
+    printf("\n\n-----------------Fim------------------\n\n");
 
-    destruirArvore(&raiz);
+    excluiElemEsq(&raiz, 7);
+        
+    printf("\n\n-----------------Inicio------------------\n\n");
+    imprimeEmOrdem(&raiz);
+    printf("\n\n-----------------Fim------------------\n\n");
 
-    raiz == NULL ? printf("\nArvore destruida") : printf("\nArvore nao destruida");
-
-    return EXIT_SUCCESS;
+    destroiArvore(&raiz);
 }
