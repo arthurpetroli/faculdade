@@ -2,13 +2,13 @@
  * @file trabalholista.c
  * @author Arthur Henrique De Oliveira Petroli (arthurpetroli@gmail.com) RA: 2408732
  * @author Dimitri Pereira Maia (dimitrimaia@aluno.utfpr.edu.br) RA: 2419840
- * @brief 
+ * @brief
  * @version 0.1
  * @date 2022-10-22
- * 
+ *
  * @copyright Copyright (c) 2022
- * 
-*/
+ *
+ */
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -203,11 +203,11 @@ int main(int argc, char *argv[])
 
     while (true)
     {
-        printf("Digite uma opção caso queira:\n");      // menu de opções
-        printf("1 - Inserir novo paciente.\n");         // opção 1
-        printf("2 - Pesquisa.\n");                      // opção 2
-        printf("3 - Terminar para mostrar a lista.\n"); // opção 3
-        scanf("%d", &opcao);                            // lendo a opção
+        printf("Digite uma opção caso queira:\n");                   // menu de opções
+        printf("1 - Inserir novo paciente(com letra maiuscula).\n"); // opção 1
+        printf("2 - Pesquisa.\n");                                   // opção 2
+        printf("3 - Terminar para mostrar a lista.\n");              // opção 3
+        scanf("%d", &opcao);                                         // lendo a opção
         setbuf(stdin, NULL);
 
         switch (opcao) // switch para as opções
