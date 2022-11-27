@@ -13,12 +13,8 @@ typedef struct  noArvore
 }NoArvore;
 
 
-
-
 NoArvore* inicializaArvore(){
-    return NULL;printf("\n\n-----------------INICIO------------------\n\n");
-    imprimePreOrdem(&raiz); getchar();
-    printf("\n\n-----------------FIM------------------\n\n");
+    return NULL;
 }
 
 bool estaVazia(NoArvore** no){
@@ -74,17 +70,11 @@ void insereArvore(NoArvore **no, int chave){
     (*no)->alt= maxAltFilho(no) + 1;
     
     if(altura(&(*no)->dir) - altura(&(*no)->esq) == 2){
-        if(altura(&(*no)->dir->dir) - altura(&(*no)->dir->esq) < 0)
-        {
-            rotacaoDir(&(*no)->dir);
-        }  
+        if(altura(&(*no)->dir->dir) - altura(&(*no)->dir->esq) < 0)  rotacaoDir(&(*no)->dir);
         rotacaoEsq(no);
     }
     else if(altura(&(*no)->dir) - altura(&(*no)->esq) == -2){
-        if(altura(&(*no)->esq->dir) - altura(&(*no)->esq->esq) > 0)
-        {
-            rotacaoEsq(&(*no)->esq);
-        } 
+         if(altura(&(*no)->esq->dir) - altura(&(*no)->esq->esq) > 0)  rotacaoEsq(&(*no)->esq);
         rotacaoDir(no);
     }
 }
@@ -131,7 +121,7 @@ void excluiElem(NoArvore **no, int chave){
             *no=(*no)->esq;
             free(aux);
         }
-        else{ //arrumar
+        else{
            NoArvore *aux=(*no);
            NoArvore *anterior=(*no);
            *no=(*no)->esq;
@@ -154,7 +144,7 @@ void excluiElem(NoArvore **no, int chave){
         rotacaoEsq(no);
     }
     else if(altura(&(*no)->dir) - altura(&(*no)->esq) == -2){
-         if(altura(&(*no)->esq->dir) - altura(&(*no)->esq->esq) > 0)  rotacaoEsq(&(*no)->esq);
+        if(altura(&(*no)->esq->dir) - altura(&(*no)->esq->esq) > 0)  rotacaoEsq(&(*no)->esq);
         rotacaoDir(no);
     }
 }
@@ -163,61 +153,24 @@ int main(void){
 
     NoArvore *raiz = inicializaArvore();
 
-    insereArvore(&raiz, 13);  
-    insereArvore(&raiz, 14);
+    insereArvore(&raiz, 10);  
     insereArvore(&raiz, 15);
-
-    printf("\n\n-----------------INICIO------------------\n\n");
-    imprimePreOrdem(&raiz); getchar();
-    printf("\n\n-----------------FIM------------------\n\n");
-
-    insereArvore(&raiz, 12);
-    insereArvore(&raiz, 11);
+    insereArvore(&raiz, 13);
     insereArvore(&raiz, 17);
-
-    printf("\n\n-----------------INICIO------------------\n\n");
-    imprimePreOrdem(&raiz); getchar();
-    printf("\n\n-----------------FIM------------------\n\n");
-
-
-    insereArvore(&raiz, 16); 
-    insereArvore(&raiz, 8);
-    insereArvore(&raiz, 9);
+    insereArvore(&raiz, 16);
+    insereArvore(&raiz, 12);
+    insereArvore(&raiz, 14); 
+    insereArvore(&raiz, 5);
     
     printf("\n\n-----------------INICIO------------------\n\n");
-    imprimePreOrdem(&raiz); getchar();
+    imprimePreOrdem(&raiz);
     printf("\n\n-----------------FIM------------------\n\n");
 
-
-    excluiElem(&raiz, 8);
-
-    printf("\n\n-----------------INICIO------------------\n\n");
-    imprimePreOrdem(&raiz); getchar();
-    printf("\n\n-----------------FIM------------------\n\n");
-
-    excluiElem(&raiz, 13);  
-    excluiElem(&raiz, 14);
-    excluiElem(&raiz, 15);
-    excluiElem(&raiz, 12);
-
-    printf("\n\n-----------------INICIO------------------\n\n");
-    imprimePreOrdem(&raiz); getchar();
-    printf("\n\n-----------------FIM------------------\n\n");
-
-    excluiElem(&raiz, 11);
     excluiElem(&raiz, 17);
-    excluiElem(&raiz, 16); 
-    excluiElem(&raiz, 9);
-    
-    printf("\n\n-----------------INICIO------------------\n\n");
-    imprimePreOrdem(&raiz); getchar();
-    printf("\n\n-----------------FIM------------------\n\n");
 
-    excluiElem(&raiz, 777);
-
-    printf("\n\n-----------------INICIO------------------\n\n");
-    imprimePreOrdem(&raiz); getchar();
-    printf("\n\n-----------------FIM------------------\n\n");
+    printf("\n\n-----------------Inicio------------------\n\n");
+    imprimePreOrdem(&raiz);
+    printf("\n\n-----------------Fim------------------\n\n");
     
     destroiArvore(&raiz);
 }
