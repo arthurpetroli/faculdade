@@ -1,0 +1,33 @@
+1) CISC possui um conjunto maior de instruções que podem ser precessados, enquanto no RISC, o volume de instruções além de mais limitado, é mais simples.
+
+CISC Instruções completas que exigem vários ciclos de relógio para serem executadas.
+RISC Instruções simples executadas em um ciclo de relógio.
+
+10) A quantidade de bits de pre-busca vai diminuindo além de a taxa de escrita e leitura ir aumentando.
+
+11) Os dispositivos de armazenamento secundário ou externo têm uma capacidade de armazenamento muito maior e o custo da memória secundária é menor em comparação com a memória primária e dados e programas não sejam perdidos ao desligar o computador. EX: SSD HD CD CARTÃO DE MEMORIA
+
+12) O paralelismo em nível de bits é uma forma de computação paralela baseada no aumento do tamanho da palavra do processador. Aumentar o tamanho da palavra reduz o número de instruções que o processador deve executar para realizar uma operação em variáveis ​​cujos tamanhos são maiores que o comprimento da palavra.
+
+Paralelismo em nível de instrução é a execução paralela ou simultânea de uma sequência de instruções em um programa de computador. Mais especificamente, o ILP refere-se ao número médio de instruções executadas por etapa dessa execução paralela.
+
+O paralelismo de dados é a paralelização entre vários processadores em ambientes de computação paralela. Ele se concentra na distribuição dos dados entre diferentes nós, que operam nos dados em paralelo. 
+
+O paralelismo de tarefas é uma forma de paralelização de código de computador em vários processadores em ambientes de computação paralela. O paralelismo de tarefas concentra-se na distribuição de tarefas – executadas simultaneamente por processos ou threads – entre diferentes processadores. 
+
+13) Processadores escalares são uma classe de processadores de computador que processam apenas um item de dados por vez. Itens de dados típicos incluem números inteiros e números de ponto flutuante.
+
+Processadores superescalares exploram paralelismo em nível de instruções de maneira a capacitar a execução de mais de uma instrução por ciclo de clock.
+
+A técnica de segmentação de instruções é semelhante a uma linha de produção de fábrica. Cada instrução de um microprocessador passa por diversas fases até sua execução.
+
+Na arquitetura superescalar, várias instruções podem ser iniciadas simultaneamente e executadas independentemente umas das outras. A arquitetura pipeline permite que diversas instruções sejam executadas ao mesmo tempo, desde que estejam em estágios diferentes do pipeline.
+
+É uma arquitetura de CPU que executa um grupo de instruções ao mesmo tempo. Um compilador garante que as instruções a serem processadas não sejam dependentes entre si para que possam ser executadas ao mesmo tempo sem perda de lógica do processamento, em alguns casos o compilador acrescenta instruções em branco a fim de garantir a não dependência das instruções.
+
+14) Explora alternativas de projeto de novos sistemas para aumento de desempenho e de recursos de microeletrônica.
+Área de pesquisa com uma comunidade brasileira ativa e atuante em várias áreas e forte apelo internacional
+Áreas de atuação:
+Desenvolvimento de novos modelos de computação
+Desenvolvimento de novas arquiteturas de sistemas computacionais (processadores multi-core, multiprocessadores, sistemas de cluster, grid e cloud computing)
+Viabiliza novas aplicações computacionais (modelos matemáticos)
