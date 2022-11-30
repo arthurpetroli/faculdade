@@ -229,7 +229,7 @@ void insereFilaDinamica(FilaDinamica *f, Objeto n){
  * @brief //mostra os conteudos da filadinamica
  * 
  * @param f 
- */
+*/
 void imprimeFilaDinamica(FilaDinamica *f){
     int pos=0;
     for(Objetos* aux=f->inicio; aux!=NULL; aux=aux->prox){
@@ -242,7 +242,7 @@ void imprimeFilaDinamica(FilaDinamica *f){
  * @brief //apaga um objeto da filadinamica
  * 
  * @param f 
- */
+*/
 void removerFilaDinamica(FilaDinamica *f){
     Objetos *aux;
     aux=f->inicio;
