@@ -1,4 +1,4 @@
-public class Main {	
+class Main {	
 
 /*
    TODO: Crie 2 (dois) objetos Estudantes
