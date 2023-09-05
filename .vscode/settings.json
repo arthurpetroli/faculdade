@@ -1,0 +1,12 @@
+{
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.associations": {
+        "stdlib.h": "c",
+        "EX3.C": "cpp"
+    }
+    "editor.minimap.enabled": false,
+    "editor.wordWrap": "on",
+
+    "doxdocgen.generic.authorEmail": "arthurpetroli@gmail.com",
+    "doxdocgen.generic.authorName": "Arthur Henrique de Oliveira Petroli"
+}

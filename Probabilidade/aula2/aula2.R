@@ -80,3 +80,42 @@ tapply(dados$rendimento, dados$empresa, sd)
 
 ####violin####
 ggplot(dados,aes(x=empresa,y=rendimento,fill=empresa))+geom_violin()
+
+
+
+####tree map####
+install.packages("treemapify")
+library(treemapify)
+dados1=as.data.frame(table(dados$empresa))#cria uma base de dados com base na tabela de dados
+names(dados1)=c('empresa','Freq')
+dados1
+ggplot(dados1,aes(area=Freq,fill=empresa))+geom_treemap()
+
+#rendimento medio por tamanho x empresa(ga,gb...pa,pb)
+dados$interacao=interaction(dados$tamanho,dados$empresa)
+dados3=as.data.frame(tapply(dados$rendimento,dados$interacao,mean))
+dados3
+dados3$nomes=labels(dados3)[[1]]
+names(dados3)[1]='total'
+dados3
+ggplot(dados3,aes(area=total,fill=nomes))+geom_treemap()
+names(dados3)
+
+####nuvem de letras####
+dados4=dados[,6:7]#dados com palavras
+dados4
+install.packages("wordcloud2")
+library(wordcloud2)
+wordcloud2(data=dados4,size=1.6)
+
+####graficos animaddos = pontos e linhas####
+install.packages("gganimate")
+install.packages("gifski")
+install.packages("png")
+library(gganimate)
+library(gifski)
+library(png)
+g = ggplot(dados,aes(x=rendimento,vendas,col=empresa))+geom_line()+geom_point()
+g=g+transition_reveal(rendimento)
+animate(g,renderer = gifski_renderer())
+g
