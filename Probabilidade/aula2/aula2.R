@@ -108,14 +108,26 @@ install.packages("wordcloud2")
 library(wordcloud2)
 wordcloud2(data=dados4,size=1.6)
 
-####graficos animaddos = pontos e linhas####
-install.packages("gganimate")
-install.packages("gifski")
-install.packages("png")
-library(gganimate)
-library(gifski)
-library(png)
-g = ggplot(dados,aes(x=rendimento,vendas,col=empresa))+geom_line()+geom_point()
-g=g+transition_reveal(rendimento)
-animate(g,renderer = gifski_renderer())
-g
+####graficos animaddos = pontos e linhas
+####Animado dispersao####
+install.packages("gapminder")
+library(gapminder)
+head(gapminder)
+
+#relacao entre renda x expvida
+ggplot(gapminder,aes(gdpPercap,lifeExp))+geom_point()+theme_bw()
+
+#colorir por continente
+ggplot(gapminder,aes(gdpPercap,lifeExp,col=continent))+geom_point()+theme_bw()
+
+#tamanho do ponto de acordo com a populacao
+ggplot(gapminder,aes(gdpPercap,lifeExp,size=pop,col=continent))+geom_point()+theme_bw()
+
+#arrumar nomes eixos
+ggplot(gapminder,aes(gdpPercap,lifeExp,size=pop,col=continent))+geom_point()+theme_bw()+labs(title='Ano:{frame_time}',x='Renda per capita',y='Expectativa de vida')
+
+#animar
+grafico = ggplot(gapminder,aes(gdpPercap,lifeExp,size=pop,col=continent))+geom_point()+theme_bw()+labs(title='Ano:{frame_time}',x='Renda per capita',y='Expectativa de vida')+transition_time(year)
+
+animate(grafico,renderer = gifski_renderer())
+
