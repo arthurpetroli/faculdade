@@ -44,3 +44,38 @@ prob(12,n,p)
 
 #d)
 80*3/4
+
+
+
+####Aula2####
+
+poisson = function(lamb,x){
+  (exp(-lamb)*lamb^x)/factorial(x)
+}
+
+poisson(5,0)+poisson(5,1)+poisson(5,2)
+
+1 - (poisson(5,0)+poisson(5,1)+poisson(5,2)+poisson(5,3)+poisson(5,4)+poisson(5,5))
+
+dpois(240,260)
+
+dbinom(2,5,1/3)
+
+dbinom(0:5,5,1/3)
+
+sum(dbinom(0:2,5,1/3))
+sum(pbinom(2,5,1/3))
+
+qbinom(0.7901,5,1/3)
+
+rbinom(10,5,1/3)
+
+barplot(table(rbinom(10,5,1/3)))
+
+install.packages('ggplot2')
+library(ggplot2)
+
+x=0:5
+px = dbinom(x,5,1/3)
+jorge = data.frame(x,px)
+ggplot(jorge, aes(x,px))+geom_col()
