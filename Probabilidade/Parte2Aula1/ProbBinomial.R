@@ -49,6 +49,7 @@ prob(12,n,p)
 
 ####Aula2####
 
+####funçao poisson####
 poisson = function(lamb,x){
   (exp(-lamb)*lamb^x)/factorial(x)
 }
@@ -59,19 +60,21 @@ poisson(5,0)+poisson(5,1)+poisson(5,2)
 
 dpois(240,260)
 
-dbinom(2,5,1/3)
+####binom####
+dbinom(2,5,1/3) #A probabilidade de 2 sucessos.
 
-dbinom(0:5,5,1/3)
+dbinom(0:5,5,1/3) # Todas as probabilidades
 
-sum(dbinom(0:2,5,1/3))
-sum(pbinom(2,5,1/3))
+sum(dbinom(0:2,5,1/3)) 
+sum(pbinom(2,5,1/3)) #A probabilidade de 2 ou menos sucessos
 
-qbinom(0.7901,5,1/3)
+qbinom(0.7901,5,1/3) # O valor deA,tal que P(X≤A)=0.7901
 
-rbinom(10,5,1/3)
+rbinom(10,5,1/3) #Uma amostra aleatória de tamanho 10
 
-barplot(table(rbinom(10,5,1/3)))
+barplot(table(rbinom(10,5,1/3))) # plot sem ggplot
 
+#A presente graficamente todas as probabilidade de sucesso
 install.packages('ggplot2')
 library(ggplot2)
 
@@ -79,3 +82,40 @@ x=0:5
 px = dbinom(x,5,1/3)
 jorge = data.frame(x,px)
 ggplot(jorge, aes(x,px))+geom_col()
+
+
+
+
+####poisson####
+dpois(35,40) #A probabilidade de processar 35 itens
+
+dpois(0:475,40) #Todas as probabilidades
+
+ppois(45,40) #A probabilidade de 45 ou menos sucessos
+
+qpois(0.8096,40) #O valor de A, tal que P(X<=A)=0.8096
+
+rpois(10,40) #Uma amostra aleatória de tamanho 10 
+
+#Apresente graficamente todas as probabilidade de sucesso
+x = 0:80
+px = dpois(x,40)
+
+cleber = data.frame(x,px)
+ggplot(cleber,aes(x,px))+geom_col()
+
+####modelo exponencial####
+dexp(6,1/7) # nao existe a resposta sempre sera 0
+
+pexp(5,1/7) # A probabilidade de vencer em 5 anos ou menos
+
+qexp(0.5,1/7) # Determine o valor mediano
+
+rexp(10,1/7)
+
+x = rexp(500,1/7)
+dx = dexp(x,1/7)
+
+dados = data.frame(x,dx)
+
+ggplot(dados,aes(x))+geom_histogram(aes(y=..density..))+geom_line(aes(x,dx,col='red'))
