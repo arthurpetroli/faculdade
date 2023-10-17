@@ -119,3 +119,36 @@ dx = dexp(x,1/7)
 dados = data.frame(x,dx)
 
 ggplot(dados,aes(x))+geom_histogram(aes(y=..density..))+geom_line(aes(x,dx,col='red'))
+
+####modelo normal####
+dnorm(20,50,sqrt(25))  # nao existe a resposta sempre sera 0
+
+pnorm(20,50,sqrt(25),lower.tail = F) #A probabilidade de pesar mais de 20
+
+qnorm(0.25,50,sqrt(25)) #O valor de A, tal que P(X<=A)=0.25
+
+rnorm(20,50,sqrt(25))
+
+hist = rnorm(700,50,sqrt(25))
+dhist = dnorm(hist,50,sqrt(25))
+
+dados1 = data.frame(hist,dhist)
+
+ggplot(dados1,aes(hist))+geom_histogram(aes(y=..density..))+geom_line(aes(hist,dhist,col='red'))
+
+####exprova####
+dbinom(0,10,0.30)
+
+sum(dbinom(1:10,10,0.3))
+
+pbinom(2,10,0.3,lower.tail = F)
+
+50*0.3
+
+x = 0:10
+hist = dbinom(x,10,0.3)
+
+dados1 = data.frame(x,hist)
+ggplot(dados1,aes(x,hist))+geom_col()
+
+                                                                      
