@@ -136,7 +136,7 @@ dados1 = data.frame(hist,dhist)
 
 ggplot(dados1,aes(hist))+geom_histogram(aes(y=..density..))+geom_line(aes(hist,dhist,col='red'))
 
-####exprova####
+####exprova1####
 dbinom(0,10,0.30)
 
 sum(dbinom(1:10,10,0.3))
@@ -151,4 +151,46 @@ hist = dbinom(x,10,0.3)
 dados1 = data.frame(x,hist)
 ggplot(dados1,aes(x,hist))+geom_col()
 
-                                                                      
+
+####exprova2####
+dpois(4,4) # A probabilidade de encontrar 4 blocos defeituosos em 1 hora lambda=4
+
+ppois(5,4,lower.tail = F) # A probabilidade de encontrar 6 ou mais blocos defeituosos em 1 hora lambda=4
+
+ppois(80,96,lower.tail = F) # A probabilidade de encontrar mais de 80 blocos defeituosos em 1 dia lambda= 96
+
+#Represente graficamente todas as probabilidades de blocos defeituosos em 1hora
+x = 0:13
+hist = dpois(x,4)
+
+dados1 = data.frame(x,hist)
+ggplot(dados1,aes(x,hist))+geom_col()
+
+fx = function(x) x^4
+a = integrate(fx,0,1)
+(k = 1/a$value)
+
+
+####exprova3####
+#O tempo de vidax(horas) de um determinado componente segue uma distribuiçao desconhecida.Uma amostra foi retirada para o estudo. Determine:
+
+#a) Qual o modelo de probabilidade melhor de adequa aos dados = exponencial
+
+#b) Qual a media do tempo de falha
+dados = read.csv('dadosex5.csv', dec = ".", header = T)
+dados
+
+ggplot(dados,aes(x))+geom_histogram()
+
+media = mean(dados$x)
+media
+
+#c) Qual a probabilidade de falhar apos 2 horas
+pexp(2,1/media,lower.tail = F)
+
+#d) Qual a probabilidade de falhar antes de 5 horas
+pexp(5,1/media)
+
+#e) Apresente o modelo ajustado no histograma
+dados$px = dexp(dados$x,1/media)
+ggplot(dados,aes(x))+geom_histogram(aes(y=..density..))+geom_line(aes(x,px,col='red'))
