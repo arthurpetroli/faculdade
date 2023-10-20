@@ -15,8 +15,8 @@ media
 pexp(300,1/media)
 
 #c)
-a = pexp(400,1/media)
-b = pexp(199,1/media)
+a = pexp(399,1/media)
+b = pexp(200,1/media)
 (a-b)
 
 #d)
@@ -53,8 +53,8 @@ ggplot(dados1,aes(x,px))+geom_col()+theme_minimal()
 dpois(15,20)
 
 #b)
-a = ppois(30,20)
-b = ppois(19,20)
+a = ppois(29,20)
+b = ppois(20,20)
 (a-b)
 
 #c)
