@@ -27,3 +27,4 @@ prop.test(12, 20, conf.level = 0.95) #ex5
 #A verdadeira proporção está entre 36,4 e 80%, com 95%
 #de confiança, ou seja, a probabilidade de estarmos
 #dizendo algo errado é de 5% (nível de significância)
+
