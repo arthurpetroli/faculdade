@@ -1,157 +1,93 @@
 package EX2;
-
 import java.util.ArrayList;
-import java.util.List;
-
 public class Principal {
-	public abstract class Roupa {
-		public abstract String nome();
-	    public abstract String tamanho();  
-	    public abstract Double preco();  
-
-	}
-	
-	public class SubclasseRoupa1 extends Roupa {
-
-	    private String nome;
-	    private String tamanho;
-	    private Double preco;
-
-	    public SubclasseRoupa1( String nome, String tamanho, Double preco){
-	           this.nome = nome;
-	           this.tamanho = tamanho;
-	           this.preco = preco;
-	           
-	    }
-		@Override
-		public String nome() {
-			
-			return this.nome;
+	public abstract class Roupa implements IRoupa {
+		private String nome;
+		private String tamanho;
+		private double preco;
+		public Roupa(String nome, String tamanho, double preco) {
+			this.nome = nome;
+			this.tamanho = tamanho;
+			this.preco = preco;
 		}
-
-		@Override
-		public String tamanho() {
-			
+		public String getTamanho() {
 			return this.tamanho;
 		}
-
-		@Override
-		public Double preco() {
-			
+		public Double getPreco() {
 			return this.preco;
 		}
-	    
+	}
+	public class SubRoupa1 extends Roupa {
+		public SubRoupa1(String nome, String tamanho, Double preco) {
+			super(nome, tamanho, preco);
+		}
+		public void m1() {
+		}
+		public void m2() {
+		}
+	}
+	public class SubRoupa2 extends Roupa {
+		public SubRoupa2(String nome, String tamanho, Double preco) {
+			super(nome, tamanho, preco);
+		}
+		public void m1() {
+		}
+		public void m2() {
+		}
+	}
+	public class SubRoupa3 extends Roupa {
+		public SubRoupa3(String nome, String tamanho, Double preco) {
+			super(nome, tamanho, preco);
+		}
+		public void m1() {
+		}
+		public void m2() {
+		}
+	}
+	public class SubRoupa4 extends Roupa {
+		public SubRoupa4(String nome, String tamanho, Double preco) {
+			super(nome, tamanho, preco);
+		}
+		public void m1() {
+		}
+		public void m2() {
+		}
+	}
+	public interface IRoupa {
+		public void m1();
+		public void m2();
+	}
+	public class Cliente {
+		private ArrayList<Roupa> lista = new ArrayList<>();
+		public Cliente(ArrayList<Roupa> lista) {
+			this.lista = lista;
+		}
+		public double getTotal(String tamanho) {
+			double total = 0;
+			for (Roupa roupa : lista)
+				if (roupa.getTamanho().equals(tamanho))
+					total += roupa.getPreco();
+			return total;
+		}
 	}
 	
-	public class SubclasseRoupa2 extends Roupa {
-
-	    private String nome;
-	    private String tamanho;
-	    private Double preco;
-
-	    public SubclasseRoupa2( String nome, String tamanho, Double preco){
-	           this.nome = nome;
-	           this.tamanho = tamanho;
-	           this.preco = preco;
-	           
-	    }
-		@Override
-		public String nome() {
-			
-			return this.nome;
-		}
-
-		@Override
-		public String tamanho() {
-			
-			return this.tamanho;
-		}
-
-		@Override
-		public Double preco() {
-			
-			return this.preco;
-		}
-	    
+	public Principal() {
+		ArrayList<Roupa> listaRoupas = new ArrayList<>();
+		listaRoupas.add(new SubRoupa1("calca", "M", 10.0));
+		listaRoupas.add(new SubRoupa2("calca", "M", 10.0));
+		listaRoupas.add(new SubRoupa3("calca", "M", 10.0));
+		listaRoupas.add(new SubRoupa4("calca", "M", 10.0));
+		Cliente cliente = new Cliente(listaRoupas);
+		
+		IRoupa objeto = new IRoupa() {
+			public void m1() {
+			}
+			public void m2() {
+			}
+		};
 	}
-	
-	public class SubclasseRoupa3 extends Roupa {
-
-	    private String nome;
-	    private String tamanho;
-	    private Double preco;
-
-	    public SubclasseRoupa3( String nome, String tamanho, Double preco){
-	           this.nome = nome;
-	           this.tamanho = tamanho;
-	           this.preco = preco;
-	           
-	    }
-		@Override
-		public String nome() {
-			
-			return this.nome;
-		}
-
-		@Override
-		public String tamanho() {
-			
-			return this.tamanho;
-		}
-
-		@Override
-		public Double preco() {
-			
-			return this.preco;
-		}
-	    
-	}
-	
-	public class SubclasseRoupa4 extends Roupa {
-
-	    private String nome;
-	    private String tamanho;
-	    private Double preco;
-
-	    public SubclasseRoupa4( String nome, String tamanho, Double preco){
-	           this.nome = nome;
-	           this.tamanho = tamanho;
-	           this.preco = preco;
-	           
-	    }
-		@Override
-		public String nome() {
-			
-			return this.nome;
-		}
-
-		@Override
-		public String tamanho() {
-			
-			return this.tamanho;
-		}
-
-		@Override
-		public Double preco() {
-			
-			return this.preco;
-		}
-	    
-	}
-	
-	
-	
 	public static void main(String[] args) {
-		List<Roupa> lista = new ArrayList<>();
-		SubclasseRoupa1 sub1 = new SubclasseRoupa1("calça", "1,69", 10d);
-		SubclasseRoupa2 sub2 = new SubclasseRoupa2("jaqueta", "1,70", 12d);
-		SubclasseRoupa3 sub3 = new SubclasseRoupa3("camisa", "1,75", 13d);
-		SubclasseRoupa4 sub4 = new SubclasseRoupa4("bone", "1,84", 15d);
-        lista.add(sub1);
-        lista.add(sub2);
-        lista.add(sub3);
-        lista.add(sub4);
-        
-        Roupa cliente = new Roupa("jaqueta", "1,70", 12d);
-    }
+		new Principal();
+	}
 }
+

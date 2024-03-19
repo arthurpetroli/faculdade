@@ -1,139 +1,104 @@
 package EX1;
-
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Principal {
-	int i=0;
-	public class ExceptionDepartamento extends ArithmeticException{
-	    public ExceptionDepartamento(String m){
-	        super(m);
-	    }
+	public class Funcionario {
+		private String nome;
+		private Departamento depto;
+	public Funcionario(String nome, Departamento depto) {
+		 this.nome = nome;
+		 this.depto = depto;
 	}
+}
 	
-	public class Funcionario extends Departamento{
-		public String nome = "";
-
-		public String getNome() {
-			return nome;
-		}
-
-		public void setNome(String nome) {
-			this.nome = nome;
-		}
-		
-		public Funcionario(String nome){
-			this.nome = nome;
-		}
-
-		@Override
-		public String toString() {
-			return "Funcionario [nome=" + nome + "]";
-		}
-		
-		
-		
+public class Departamento {
+	private ArrayList<Funcionario> listaFuncionario = new ArrayList<>();
+	private String nome;
+	private int numero;
+	public Departamento(String nome, int numero){
+	this.nome = nome;
+	this.numero = numero;
+}
+	
+public void add( Funcionario funcionario ){
+	listaFuncionario.add( funcionario );
 	}
-	
-	public class Departamento extends DepartamentoDaEmpresa{
-		
-		public String nome = "";
-		public Integer numero = 0;
-		public ArrayList<Funcionario> funcionarios;
-		public String getNome() {
-			return nome;
-		}
-		public void setNome(String nome) {
-			this.nome = nome;
-		}
-		public Integer getNumero() {
-			return numero;
-		}
-		public void setNumero(Integer numero) {
-			this.numero = numero;
-		}
-		public ArrayList<Funcionario> getFuncionarios() {
-			return funcionarios;
-		}
-		public void setFuncionarios(ArrayList<Funcionario> funcionarios) {
-			this.funcionarios = funcionarios;
-		}
-		Funcionario funcionario = new Funcionario(nome);
-		public Departamento(String nome, Integer numero, Funcionario funcionarios) {
-			this.nome = nome;
-			this.numero = numero;
-			this.funcionarios = new ArrayList<Funcionario>();
-		}
-	
+	public ArrayList<Funcionario> getLista(){
+	return this.listaFuncionario;
 	}
-	
-	public class DepartamentoDaEmpresa{
-		public ArrayList<Departamento> departamentos;
+	public int getNumero() {
+		 return this.numero;
+	}
+}
 
-		public ArrayList<Departamento> getDepartamentos() {
-			return departamentos;
-		}
+public class DepartamentosDaEmpresa {
+	private ArrayList<Departamento> listaDepartamento = new ArrayList<>();
+	public void add( Departamento depto ){
+	this.listaDepartamento.add( depto );
+	}
+	public ArrayList<Departamento> getLista(){
+	return this.listaDepartamento;
+	}
+}
 
-		public void setDepartamentos(ArrayList<Departamento> departamentos) {
-			this.departamentos = departamentos;
-		}
-		
-		public Departamento consultar(Departamento numero) {
-			return numero;
-			
-		}
-		public DepartamentoDaEmpresa(Departamento departamentos) {
-			this.departamentos = new ArrayList<Departamento>();
-		}
-		Departamento departamento = new Departamento("Cleber", 10, new Funcionario("Arthur"));
-	  }
-	{
-	
-		while (i==0) {
-			int x=0;
-			String nome1="";
-			Scanner sc = new Scanner(System.in);
-			System.out.println("Digite 1 para cadastar funcionario / Digite 2 para cadastrar departamento/ Digite 3 para listar funcionarios/ Digite 4 para sair");
-			x = sc.nextInt();
-			sc.nextLine();
-			String nome="";
-			switch(x){
-				case 1:
-					System.out.println("Digite o nome do funcionario:");
-					nome1 = sc.nextLine();
-					new Funcionario(nome1);
-					break;
-				case 2:
-					System.out.println("Digite o nome do Departamento:");
-					nome = sc.nextLine();
-					System.out.println("Digite o numero do departamento:");
-					int numero = sc.nextInt();
-					new Departamento(nome,numero,new Funcionario(nome1));
-					break;
-				case 3:
-					List<Funcionario> lista = new ArrayList<>();
-					for (Funcionario ep : lista) {
-				           System.out.println(ep.toString());
-				        }
-					break;
-				case 4:
-					i++;
-					break;
+public class MEV extends Exception {
+	public MEV( String m ) {
+	super( m );
+	}
+}
+public Principal(){
+	Scanner leitor = new Scanner( System.in );
+	ArrayList<Funcionario> listaFuncionario = new ArrayList<>();
+	DepartamentosDaEmpresa de = new DepartamentosDaEmpresa();
+	int opcao;
+	while( true ) {
+		System.out.println("Opcao: ");
+		opcao = leitor.nextInt();
+		switch( opcao ){
+		case 1: {
+			Scanner leitor2 = new Scanner(System.in);
+			String nome = leitor2.next();
+			Scanner leitor3 = new Scanner(System.in);
+			int numero = leitor3.nextInt();
+			Departamento depto = null;
+			boolean achou = false;
+			for( Departamento d : de.getLista() )
+			if ( d.getNumero() == numero ){
+			depto = d;
+			achou = true;
 			}
+			if ( ! achou )
+			try {
+			throw new MEV("MENSAGEM PERSONALIZADA");
+			} catch( MEV mev ){
+			}
+			listaFuncionario.add( new Funcionario( nome, depto ) );
+			break;
 		}
+		case 2 : {
+			Scanner leitor3 = new Scanner(System.in);
+			String nome = leitor3.next();
+			Scanner leitor4 = new Scanner(System.in);
+			int numero = leitor4.nextInt();
+			Departamento depto = new Departamento( nome, numero );
+			de.add( depto );
+			break;
+		}
+		case 3: {
+			Scanner leitor5 = new Scanner(System.in);
+			int numero = leitor5.nextInt();
+			for( Departamento depto : de.getLista() )
+			if ( depto.getNumero() == numero )
+			System.out.println( depto );
+			break;
+			}
+			default :
+			break;
+		}//fim switch
+	}//fim while
 	}
-	public static void main(String[] args) {
-		List<DepartamentoDaEmpresa> lista = new ArrayList<>();
-        lista.add(new DepartamentoDaEmpresa(new Departamento("Cleber", 10, "Arthur")));
-        try {
-        	if(numero.Departamento < 0) {
-        		throw new ExceptionDepartamento("Excecao Departamento");
-        	}
-        } catch (ArithmeticException e){
-            System.out.println(e.getMessage());
-        }
-        
-        
-    }
+	public static void main(String [ ] args ){
+	new Principal();
+	}
 }
