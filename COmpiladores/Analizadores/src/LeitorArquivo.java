@@ -9,7 +9,7 @@ public class LeitorArquivo {
 
 	public LeitorArquivo(String nome) throws FileNotFoundException {
 		Scanner in = new Scanner(new FileReader(nome));
-		while (in.hasNextLine()) {
+		while (in.hasNextLine() != false) {
 			String line = scanner.nextLine();
 			AnalizadorLexico passa = new AnalizadorLexico(line);
 		    System.out.println(line);

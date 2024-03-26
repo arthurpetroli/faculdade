@@ -9,7 +9,6 @@ public class Token {
 		this.nome = nome;
 		this.linha = linha;
 	}
-
 	@Override
 	public String toString() {
 		return "Token [lexema=" + lexema + ", nome=" + nome + ", linha=" + linha + "]";
@@ -39,37 +38,41 @@ public class Token {
 		
 		case ">=":   return(new Token(lexema, TipoToken.OpRelIgual, 0));
 		
-		case "==":   return(new Token(lexema, TipoToken.OpAritMult, 0));
+		case "==":   return(new Token(lexema, TipoToken.OpRelIgual, 0));
 		
-		case "<>":   return(new Token(lexema, TipoToken.OpAritDiv, 0));
+		case "<>":   return(new Token(lexema, TipoToken.OpRelDif, 0));
 		
-		case "or":   return(new Token(lexema, TipoToken.OpAritSoma, 0));
+		case "*":   return(new Token(lexema, TipoToken.OpAritMult, 0));
 		
-		case "or":   return(new Token(lexema, TipoToken.OpAritSub, 0));
+		case "/":   return(new Token(lexema, TipoToken.OpAritDiv, 0));
 		
-		case "or":   return(new Token(lexema, TipoToken.PCDec, 0));
+		case "+":   return(new Token(lexema, TipoToken.OpAritSoma, 0));
 		
-		case "or":   return(new Token(lexema, TipoToken.PCProg, 0));
+		case "-":   return(new Token(lexema, TipoToken.OpAritSub, 0));
 		
-		case "or":   return(new Token(lexema, TipoToken.PCInt, 0));
+		case "dec":   return(new Token(lexema, TipoToken.PCDec, 0));
 		
-		case "or":   return(new Token(lexema, TipoToken.PCReal, 0));
+		case "prog":   return(new Token(lexema, TipoToken.PCProg, 0));
 		
-		case "or":   return(new Token(lexema, TipoToken.PCLer, 0));
+		case "integer":   return(new Token(lexema, TipoToken.PCInt, 0));
 		
-		case "or":   return(new Token(lexema, TipoToken.PCImprimir, 0));
+		case "float":   return(new Token(lexema, TipoToken.PCReal, 0));
 		
-		case "or":   return(new Token(lexema, TipoToken.PCSe, 0));
+		case "read":   return(new Token(lexema, TipoToken.PCLer, 0));
 		
-		case "or":   return(new Token(lexema, TipoToken.PCSenao, 0));
+		case "print":   return(new Token(lexema, TipoToken.PCImprimir, 0));
 		
-		case "or":   return(new Token(lexema, TipoToken.PCEntao, 0));
+		case "if":   return(new Token(lexema, TipoToken.PCSe, 0));
 		
-		case "or":   return(new Token(lexema, TipoToken.PCEnqto, 0));
+		case "else":   return(new Token(lexema, TipoToken.PCSenao, 0));
 		
-		case "or":   return(new Token(lexema, TipoToken.PCIni, 0));
+		case "then":   return(new Token(lexema, TipoToken.PCEntao, 0));
 		
-		case "or":   return(new Token(lexema, TipoToken.PCFim, 0));
+		case "while":   return(new Token(lexema, TipoToken.PCEnqto, 0));
+		
+		case "start":   return(new Token(lexema, TipoToken.PCIni, 0));
+		
+		case "end":   return(new Token(lexema, TipoToken.PCFim, 0));
 							
 		default:;			
 		
