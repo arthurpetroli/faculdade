@@ -1,0 +1,7 @@
+14) Qual as principais vantagens de threads de usuário em relação a threas de núcleo? E as principais desvantagens?
+
+Threads de usuario: executam operações de suporte a threads no espaço do usuário, elas são criadas por bibliotecas em tempo de execução.
+
+Threads de nucleo: buscam mapear cada thread para seu proprio contexto de execucao. Elas são descritas como mapeamento de threads um-para-um e com isso cada thread de usuario tem uma thread de nucleo.
+
+threads de nucleo tendem a ser menos eficientes do que as de usuario pois operações de escalonamento e sincronização envolvem o núcleo que aumenta a sobrecarga.

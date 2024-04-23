@@ -1,0 +1,5 @@
+Um processo é todo programa em execuão, ele representa uma unidade de trabalho no SO
+
+Thread é uma unidade básica de uso de CPU. Um thread compartilha com outras threads do mesmo processo a seção no código, data e outros recursos do SO como memória por exemplo. Uma thread é como se fosse uma forma de um processo se autodividir
+
+É mais vantajoso ter um processo com multiplas threads pois criar um processo é mais custoso do que criar uma thread

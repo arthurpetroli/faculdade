@@ -1,0 +1,5 @@
+12) Em sistemas operacionais o que são PIPEs. Cite as características principais de um PIPE, e explique o seu funcionamento.
+    Pipes é uma forma de um processo escrever uma informação e o outro ler ela, ele dura apenas no tempo de execução do processo que o criou e vários processos podem fazer a leitura e escrita de um pipe.
+    Para criarmos um pipe seguimos a seguinte estrutura:
+    int pipe(int pp[2])
+    onde pp[0] = leitura e pp[1] = escrita

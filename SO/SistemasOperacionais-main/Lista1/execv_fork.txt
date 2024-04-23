@@ -1,0 +1,3 @@
+Fork e exec, fork para criar um proceso filho e exec para fazer uma substituição no processo com outro programa.
+
+Por fazer parte do conjunto de funções exec ela irá substituir o processo atual, a função execv substitui o processo atual com o programa informado no parametro da funão, no caso dela é o path do progama, ex: /bin/ls

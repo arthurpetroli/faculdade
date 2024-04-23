@@ -1,0 +1,3 @@
+Não, processos pai e filho são como copias, ao usar fork para criar um filho estamos duplicando o código, ou seja, 2 execuções, quando o filho terminar o pai executa e termina.
+
+Processos não compartilham dados por questão de segurança, onde dois processos poderiam acessar os dados um do outro podendo ocasionar problemas de segurança e também questão de eficiencia para controlar e sincronizar o acesso aos dados, tendo assim uma redução no desempenho do SO

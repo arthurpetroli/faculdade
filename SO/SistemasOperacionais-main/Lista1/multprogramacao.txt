@@ -1,0 +1,1 @@
+Sim, pois essa tecnica faz uso de multiplos processos, ou seja, eles estarão em execução simultanea, consumindo mais CPU. Um exemplo: se caso um processo estiver esperando o input de um usuario ou buscando algo no HD, outro processo podera ser executado no lugar. O consumo maior de CPU nesta tecnica é algo benefico, visto que ela é usada de forma maximizada e menos ociosa

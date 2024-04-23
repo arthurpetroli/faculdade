@@ -1,0 +1,8 @@
+13) Explique o que são deadlocks. Como você trataria um deadlock? A sua solução "compensa" computacionalmente falando?
+
+Quando dois ou mais processos ficam impedidos de continuar susas execuções, ou seja, ficam bloqueados esperando uns pelos outros.
+Deadlocks independem da quantidade de recursos disponiveis no sistema
+
+Tratamento de deadlocks: ignorar o deadlock ou detectar ele e recuperar o sistema, detectar o deadolocks precisariamos armazenar as informações dos processos e os recursos alocados, apenas isso geraria uma grande sobrecarga
+
+Tratar um deadlocks gera grande sobrecarga no sistemas o que não é uma coisa boa

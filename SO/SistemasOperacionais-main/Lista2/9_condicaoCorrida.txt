@@ -1,0 +1,1 @@
+Condição de corrida é quando duas threads tentam acessar uma mesma variavel compartilhada ao mesmo tempo

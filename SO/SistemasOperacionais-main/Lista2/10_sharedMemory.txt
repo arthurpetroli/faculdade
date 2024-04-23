@@ -1,0 +1,4 @@
+ftok cria a chave
+shmget cria ou acessa a mem
+shmat conecta o processo a mem
+shmdt desconecta

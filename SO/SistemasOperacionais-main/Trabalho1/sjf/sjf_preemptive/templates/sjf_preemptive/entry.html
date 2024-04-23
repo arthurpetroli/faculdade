@@ -1,0 +1,51 @@
+{% extends "sjf_preemptive/layout.html" %}
+
+{% block title %}
+    {{ titlePage }}
+{% endblock %}
+
+{% block nav %}
+    <div>
+        <a href="{% url 'edit' titlePage %}">Edit Page</a>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <h5>Tabela de processos</h5>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Tempo de Chegada</th>
+            <th>Tempo de CPU</th>
+            <th>Tempo de Completo</th>
+            <th>Tempo de Espera</th>
+            <th>Tempo de Resposta</th>
+        </tr>
+        {% for obj in process %}
+            <tr>
+                <td><h5>{{ obj.name }}</h5></td>
+                <td><h5>{{ obj.arrivalTime }}</h5></td>
+                <td><h5>{{ obj.CPUtime }}</h5></td>
+                <td><h5>{{ obj.completionTime }}</h5></td>
+                <td><h5>{{ obj.waitingTime }}</h5></td>
+                <td><h5>{{ obj.responseTime }}</h5></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <h5>Tempo de CPU de cada processo:</h5>
+    <h5>|0|
+    {% for obj in data %}
+        -
+        {% for i in range|slice:obj.CPUtime %}
+            {{ obj.name }}
+        {% endfor %}
+        - |{{ obj.maxLine }}|
+    {% endfor %}
+    </h5>
+    <br>
+    <h5>Tempo de Espera medio: {{ tme }}</h5>
+    <br>
+    <h5>Tempo de Resposta medio: {{ tmr }}</h5>
+
+{% endblock %}

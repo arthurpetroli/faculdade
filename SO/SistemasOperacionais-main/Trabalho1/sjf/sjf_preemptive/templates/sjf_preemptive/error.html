@@ -1,0 +1,17 @@
+{% extends "sjf_preemptive/layout.html" %}
+
+{% block title %}
+    {{ titlePage }}
+{% endblock %}
+{% block nav %}
+    {% if aux == 1 %}
+        <div>
+            <a href="{% url 'edit' titlePage %}">Edit Page</a>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <h1>Error: 404</h1>
+    <p>Page {{ pagePath }} was not found</p>
+{% endblock %}
