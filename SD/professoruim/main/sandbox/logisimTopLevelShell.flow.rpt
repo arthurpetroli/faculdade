@@ -1,0 +1,121 @@
+Flow report for logisimTopLevelShell
+Mon May 20 11:26:23 2024
+Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Flow Summary                                                                        ;
++------------------------------------+------------------------------------------------+
+; Flow Status                        ; Successful - Mon May 20 11:26:20 2024          ;
+; Quartus Prime Version              ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
+; Revision Name                      ; logisimTopLevelShell                           ;
+; Top-level Entity Name              ; logisimTopLevelShell                           ;
+; Family                             ; MAX 10                                         ;
+; Device                             ; 10M50DAF484C7G                                 ;
+; Timing Models                      ; Final                                          ;
+; Total logic elements               ; 80 / 49,760 ( < 1 % )                          ;
+;     Total combinational functions  ; 78 / 49,760 ( < 1 % )                          ;
+;     Dedicated logic registers      ; 45 / 49,760 ( < 1 % )                          ;
+; Total registers                    ; 45                                             ;
+; Total pins                         ; 35 / 360 ( 10 % )                              ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                          ;
+; Embedded Multiplier 9-bit elements ; 0 / 288 ( 0 % )                                ;
+; Total PLLs                         ; 0 / 4 ( 0 % )                                  ;
+; UFM blocks                         ; 0 / 1 ( 0 % )                                  ;
+; ADC blocks                         ; 0 / 2 ( 0 % )                                  ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------+
+; Flow Settings                            ;
++-------------------+----------------------+
+; Option            ; Setting              ;
++-------------------+----------------------+
+; Start date & time ; 05/20/2024 11:26:02  ;
+; Main task         ; Compilation          ;
+; Revision Name     ; logisimTopLevelShell ;
++-------------------+----------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                              ;
++----------------------------------+---------------------------------+---------------+-------------+------------+
+; Assignment Name                  ; Value                           ; Default Value ; Entity Name ; Section Id ;
++----------------------------------+---------------------------------+---------------+-------------+------------+
+; COMPILER_SIGNATURE_ID            ; 145862440352481.171621516103396 ; --            ; --          ; --         ;
+; CYCLONEII_OPTIMIZATION_TECHNIQUE ; Area                            ; Balanced      ; --          ; --         ;
+; FMAX_REQUIREMENT                 ; 50 MHz                          ; --            ; --          ; --         ;
++----------------------------------+---------------------------------+---------------+-------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:07     ; 1.0                     ; 4827 MB             ; 00:00:14                           ;
+; Fitter               ; 00:00:09     ; 1.0                     ; 5771 MB             ; 00:00:11                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4716 MB             ; 00:00:02                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4857 MB             ; 00:00:03                           ;
+; Total                ; 00:00:20     ; --                      ; --                  ; 00:00:30                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                    ;
++----------------------+------------------+------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++----------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis ; ap-607971        ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; ap-607971        ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; ap-607971        ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; ap-607971        ; Windows 10 ; 10.0       ; x86_64         ;
++----------------------+------------------+------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off logisimTopLevelShell -c logisimTopLevelShell
+quartus_fit --read_settings_files=off --write_settings_files=off logisimTopLevelShell -c logisimTopLevelShell
+quartus_asm --read_settings_files=off --write_settings_files=off logisimTopLevelShell -c logisimTopLevelShell
+quartus_sta logisimTopLevelShell -c logisimTopLevelShell
+
+
+

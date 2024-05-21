@@ -1,0 +1,185 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'fpgaGlobalClock'
+Slack : -2.900
+TNS   : -45.514
+
+Type  : Slow 1200mV 85C Model Setup 'main:CIRCUIT_0|count4:count4_3|carr'
+Slack : -0.302
+TNS   : -0.932
+
+Type  : Slow 1200mV 85C Model Setup 'main:CIRCUIT_0|count4:count4_2|carr'
+Slack : -0.301
+TNS   : -1.208
+
+Type  : Slow 1200mV 85C Model Setup 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : -0.246
+TNS   : -1.111
+
+Type  : Slow 1200mV 85C Model Setup 'main:CIRCUIT_0|count4:count4_1|carr'
+Slack : -0.237
+TNS   : -1.063
+
+Type  : Slow 1200mV 85C Model Hold 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : 0.341
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'fpgaGlobalClock'
+Slack : 0.347
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'main:CIRCUIT_0|count4:count4_2|carr'
+Slack : 0.347
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'main:CIRCUIT_0|count4:count4_1|carr'
+Slack : 0.348
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'main:CIRCUIT_0|count4:count4_3|carr'
+Slack : 0.348
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'fpgaGlobalClock'
+Slack : -3.000
+TNS   : -39.478
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : -1.403
+TNS   : -7.015
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'main:CIRCUIT_0|count4:count4_1|carr'
+Slack : -1.403
+TNS   : -7.015
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'main:CIRCUIT_0|count4:count4_2|carr'
+Slack : -1.403
+TNS   : -7.015
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'main:CIRCUIT_0|count4:count4_3|carr'
+Slack : -1.403
+TNS   : -5.612
+
+Type  : Slow 1200mV 0C Model Setup 'fpgaGlobalClock'
+Slack : -2.593
+TNS   : -39.439
+
+Type  : Slow 1200mV 0C Model Setup 'main:CIRCUIT_0|count4:count4_3|carr'
+Slack : -0.182
+TNS   : -0.505
+
+Type  : Slow 1200mV 0C Model Setup 'main:CIRCUIT_0|count4:count4_2|carr'
+Slack : -0.180
+TNS   : -0.663
+
+Type  : Slow 1200mV 0C Model Setup 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : -0.137
+TNS   : -0.585
+
+Type  : Slow 1200mV 0C Model Setup 'main:CIRCUIT_0|count4:count4_1|carr'
+Slack : -0.129
+TNS   : -0.543
+
+Type  : Slow 1200mV 0C Model Hold 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : 0.306
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'fpgaGlobalClock'
+Slack : 0.311
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'main:CIRCUIT_0|count4:count4_1|carr'
+Slack : 0.312
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'main:CIRCUIT_0|count4:count4_2|carr'
+Slack : 0.312
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'main:CIRCUIT_0|count4:count4_3|carr'
+Slack : 0.312
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'fpgaGlobalClock'
+Slack : -3.000
+TNS   : -39.478
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : -1.403
+TNS   : -7.015
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'main:CIRCUIT_0|count4:count4_1|carr'
+Slack : -1.403
+TNS   : -7.015
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'main:CIRCUIT_0|count4:count4_2|carr'
+Slack : -1.403
+TNS   : -7.015
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'main:CIRCUIT_0|count4:count4_3|carr'
+Slack : -1.403
+TNS   : -5.612
+
+Type  : Fast 1200mV 0C Model Setup 'fpgaGlobalClock'
+Slack : -0.623
+TNS   : -5.788
+
+Type  : Fast 1200mV 0C Model Setup 'main:CIRCUIT_0|count4:count4_3|carr'
+Slack : 0.433
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'main:CIRCUIT_0|count4:count4_2|carr'
+Slack : 0.434
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : 0.469
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'main:CIRCUIT_0|count4:count4_1|carr'
+Slack : 0.473
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : 0.149
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'main:CIRCUIT_0|count4:count4_2|carr'
+Slack : 0.151
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'fpgaGlobalClock'
+Slack : 0.152
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'main:CIRCUIT_0|count4:count4_1|carr'
+Slack : 0.152
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'main:CIRCUIT_0|count4:count4_3|carr'
+Slack : 0.152
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'fpgaGlobalClock'
+Slack : -3.000
+TNS   : -29.896
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : -1.000
+TNS   : -5.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'main:CIRCUIT_0|count4:count4_1|carr'
+Slack : -1.000
+TNS   : -5.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'main:CIRCUIT_0|count4:count4_2|carr'
+Slack : -1.000
+TNS   : -5.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'main:CIRCUIT_0|count4:count4_3|carr'
+Slack : -1.000
+TNS   : -4.000
+
+------------------------------------------------------------

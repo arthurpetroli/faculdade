@@ -1,0 +1,355 @@
+|logisimTopLevelShell
+RESET_0 => main:CIRCUIT_0.RESET
+fpgaGlobalClock => logisimTickGenerator:BASE_0.FPGAClock
+fpgaGlobalClock => LogisimClockComponent:BASE_1.globalClock
+L_7_Segment_Display_1_DecimalPoint << main:CIRCUIT_0.logisimOutputBubbles[8]
+L_7_Segment_Display_1_Segment_A << main:CIRCUIT_0.logisimOutputBubbles[1]
+L_7_Segment_Display_1_Segment_B << main:CIRCUIT_0.logisimOutputBubbles[2]
+L_7_Segment_Display_1_Segment_C << main:CIRCUIT_0.logisimOutputBubbles[3]
+L_7_Segment_Display_1_Segment_D << main:CIRCUIT_0.logisimOutputBubbles[4]
+L_7_Segment_Display_1_Segment_E << main:CIRCUIT_0.logisimOutputBubbles[5]
+L_7_Segment_Display_1_Segment_F << main:CIRCUIT_0.logisimOutputBubbles[6]
+L_7_Segment_Display_1_Segment_G << main:CIRCUIT_0.logisimOutputBubbles[7]
+L_7_Segment_Display_2_DecimalPoint << main:CIRCUIT_0.logisimOutputBubbles[32]
+L_7_Segment_Display_2_Segment_A << main:CIRCUIT_0.logisimOutputBubbles[25]
+L_7_Segment_Display_2_Segment_B << main:CIRCUIT_0.logisimOutputBubbles[26]
+L_7_Segment_Display_2_Segment_C << main:CIRCUIT_0.logisimOutputBubbles[27]
+L_7_Segment_Display_2_Segment_D << main:CIRCUIT_0.logisimOutputBubbles[28]
+L_7_Segment_Display_2_Segment_E << main:CIRCUIT_0.logisimOutputBubbles[29]
+L_7_Segment_Display_2_Segment_F << main:CIRCUIT_0.logisimOutputBubbles[30]
+L_7_Segment_Display_2_Segment_G << main:CIRCUIT_0.logisimOutputBubbles[31]
+L_7_Segment_Display_3_DecimalPoint << main:CIRCUIT_0.logisimOutputBubbles[24]
+L_7_Segment_Display_3_Segment_A << main:CIRCUIT_0.logisimOutputBubbles[17]
+L_7_Segment_Display_3_Segment_B << main:CIRCUIT_0.logisimOutputBubbles[18]
+L_7_Segment_Display_3_Segment_C << main:CIRCUIT_0.logisimOutputBubbles[19]
+L_7_Segment_Display_3_Segment_D << main:CIRCUIT_0.logisimOutputBubbles[20]
+L_7_Segment_Display_3_Segment_E << main:CIRCUIT_0.logisimOutputBubbles[21]
+L_7_Segment_Display_3_Segment_F << main:CIRCUIT_0.logisimOutputBubbles[22]
+L_7_Segment_Display_3_Segment_G << main:CIRCUIT_0.logisimOutputBubbles[23]
+L_7_Segment_Display_4_DecimalPoint << main:CIRCUIT_0.logisimOutputBubbles[16]
+L_7_Segment_Display_4_Segment_A << main:CIRCUIT_0.logisimOutputBubbles[9]
+L_7_Segment_Display_4_Segment_B << main:CIRCUIT_0.logisimOutputBubbles[10]
+L_7_Segment_Display_4_Segment_C << main:CIRCUIT_0.logisimOutputBubbles[11]
+L_7_Segment_Display_4_Segment_D << main:CIRCUIT_0.logisimOutputBubbles[12]
+L_7_Segment_Display_4_Segment_E << main:CIRCUIT_0.logisimOutputBubbles[13]
+L_7_Segment_Display_4_Segment_F << main:CIRCUIT_0.logisimOutputBubbles[14]
+L_7_Segment_Display_4_Segment_G << main:CIRCUIT_0.logisimOutputBubbles[15]
+PISCA_0 << main:CIRCUIT_0.logisimOutputBubbles[0]
+
+
+|logisimTopLevelShell|logisimTickGenerator:BASE_0
+FPGAClock => s_countReg[0].CLK
+FPGAClock => s_countReg[1].CLK
+FPGAClock => s_countReg[2].CLK
+FPGAClock => s_countReg[3].CLK
+FPGAClock => s_countReg[4].CLK
+FPGAClock => s_countReg[5].CLK
+FPGAClock => s_countReg[6].CLK
+FPGAClock => s_countReg[7].CLK
+FPGAClock => s_countReg[8].CLK
+FPGAClock => s_countReg[9].CLK
+FPGAClock => s_countReg[10].CLK
+FPGAClock => s_countReg[11].CLK
+FPGAClock => s_countReg[12].CLK
+FPGAClock => s_countReg[13].CLK
+FPGAClock => s_countReg[14].CLK
+FPGAClock => s_countReg[15].CLK
+FPGAClock => s_countReg[16].CLK
+FPGAClock => s_countReg[17].CLK
+FPGAClock => s_countReg[18].CLK
+FPGAClock => s_countReg[19].CLK
+FPGAClock => s_countReg[20].CLK
+FPGAClock => s_countReg[21].CLK
+FPGAClock => s_tickReg.CLK
+FPGATick <= s_tickReg.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|logisimTopLevelShell|LogisimClockComponent:BASE_1
+clockTick => s_counterValue[0].ENA
+clockTick => s_derivedClock[0].ENA
+globalClock => s_counterValue[0].CLK
+globalClock => s_derivedClock[0].CLK
+globalClock => s_outputRegs[0].CLK
+globalClock => s_outputRegs[1].CLK
+globalClock => s_outputRegs[2].CLK
+globalClock => s_outputRegs[3].CLK
+globalClock => s_bufferRegs[0].CLK
+globalClock => s_bufferRegs[1].CLK
+globalClock => clockBus[4].DATAIN
+clockBus[0] <= s_outputRegs[0].DB_MAX_OUTPUT_PORT_TYPE
+clockBus[1] <= s_outputRegs[1].DB_MAX_OUTPUT_PORT_TYPE
+clockBus[2] <= s_outputRegs[2].DB_MAX_OUTPUT_PORT_TYPE
+clockBus[3] <= s_outputRegs[3].DB_MAX_OUTPUT_PORT_TYPE
+clockBus[4] <= globalClock.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|logisimTopLevelShell|main:CIRCUIT_0
+RESET => count4:count4_1.rst
+RESET => count4:count4_3.rst
+RESET => count4:count4_2.rst
+RESET => count4:count4_4.rst
+logisimClockTree0[0] => count4:count4_1.clk
+logisimClockTree0[0] => logisimOutputBubbles[0].DATAIN
+logisimClockTree0[1] => ~NO_FANOUT~
+logisimClockTree0[2] => ~NO_FANOUT~
+logisimClockTree0[3] => ~NO_FANOUT~
+logisimClockTree0[4] => ~NO_FANOUT~
+logisimOutputBubbles[0] <= logisimClockTree0[0].DB_MAX_OUTPUT_PORT_TYPE
+logisimOutputBubbles[1] <= bcd_7seg:bcd_7seg_4.sai[6]
+logisimOutputBubbles[2] <= bcd_7seg:bcd_7seg_4.sai[5]
+logisimOutputBubbles[3] <= bcd_7seg:bcd_7seg_4.sai[4]
+logisimOutputBubbles[4] <= bcd_7seg:bcd_7seg_4.sai[3]
+logisimOutputBubbles[5] <= bcd_7seg:bcd_7seg_4.sai[2]
+logisimOutputBubbles[6] <= bcd_7seg:bcd_7seg_4.sai[1]
+logisimOutputBubbles[7] <= bcd_7seg:bcd_7seg_4.sai[0]
+logisimOutputBubbles[8] <= <VCC>
+logisimOutputBubbles[9] <= bcd_7seg:bcd_7seg_2.sai[6]
+logisimOutputBubbles[10] <= bcd_7seg:bcd_7seg_2.sai[5]
+logisimOutputBubbles[11] <= bcd_7seg:bcd_7seg_2.sai[4]
+logisimOutputBubbles[12] <= bcd_7seg:bcd_7seg_2.sai[3]
+logisimOutputBubbles[13] <= bcd_7seg:bcd_7seg_2.sai[2]
+logisimOutputBubbles[14] <= bcd_7seg:bcd_7seg_2.sai[1]
+logisimOutputBubbles[15] <= bcd_7seg:bcd_7seg_2.sai[0]
+logisimOutputBubbles[16] <= <VCC>
+logisimOutputBubbles[17] <= bcd_7seg:bcd_7seg_1.sai[6]
+logisimOutputBubbles[18] <= bcd_7seg:bcd_7seg_1.sai[5]
+logisimOutputBubbles[19] <= bcd_7seg:bcd_7seg_1.sai[4]
+logisimOutputBubbles[20] <= bcd_7seg:bcd_7seg_1.sai[3]
+logisimOutputBubbles[21] <= bcd_7seg:bcd_7seg_1.sai[2]
+logisimOutputBubbles[22] <= bcd_7seg:bcd_7seg_1.sai[1]
+logisimOutputBubbles[23] <= bcd_7seg:bcd_7seg_1.sai[0]
+logisimOutputBubbles[24] <= <VCC>
+logisimOutputBubbles[25] <= bcd_7seg:bcd_7seg_3.sai[6]
+logisimOutputBubbles[26] <= bcd_7seg:bcd_7seg_3.sai[5]
+logisimOutputBubbles[27] <= bcd_7seg:bcd_7seg_3.sai[4]
+logisimOutputBubbles[28] <= bcd_7seg:bcd_7seg_3.sai[3]
+logisimOutputBubbles[29] <= bcd_7seg:bcd_7seg_3.sai[2]
+logisimOutputBubbles[30] <= bcd_7seg:bcd_7seg_3.sai[1]
+logisimOutputBubbles[31] <= bcd_7seg:bcd_7seg_3.sai[0]
+logisimOutputBubbles[32] <= <VCC>
+
+
+|logisimTopLevelShell|main:CIRCUIT_0|bcd_7seg:bcd_7seg_1
+entra[0] => Mux0.IN19
+entra[0] => Mux1.IN19
+entra[0] => Mux2.IN19
+entra[0] => Mux3.IN19
+entra[0] => Mux4.IN19
+entra[0] => Mux5.IN19
+entra[0] => Mux6.IN19
+entra[1] => Mux0.IN18
+entra[1] => Mux1.IN18
+entra[1] => Mux2.IN18
+entra[1] => Mux3.IN18
+entra[1] => Mux4.IN18
+entra[1] => Mux5.IN18
+entra[1] => Mux6.IN18
+entra[2] => Mux0.IN17
+entra[2] => Mux1.IN17
+entra[2] => Mux2.IN17
+entra[2] => Mux3.IN17
+entra[2] => Mux4.IN17
+entra[2] => Mux5.IN17
+entra[2] => Mux6.IN17
+entra[3] => Mux0.IN16
+entra[3] => Mux1.IN16
+entra[3] => Mux2.IN16
+entra[3] => Mux3.IN16
+entra[3] => Mux4.IN16
+entra[3] => Mux5.IN16
+entra[3] => Mux6.IN16
+sai[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+sai[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+sai[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+sai[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+sai[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+sai[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+sai[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|logisimTopLevelShell|main:CIRCUIT_0|count4:count4_1
+clk => carr~reg0.CLK
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+rst => count[0].ACLR
+rst => count[1].ACLR
+rst => count[2].ACLR
+rst => count[3].ACLR
+rst => carr~reg0.ENA
+carr <= carr~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[0] <= count[0].DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= count[1].DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|logisimTopLevelShell|main:CIRCUIT_0|count4:count4_3
+clk => carr~reg0.CLK
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+rst => count[0].ACLR
+rst => count[1].ACLR
+rst => count[2].ACLR
+rst => count[3].ACLR
+rst => carr~reg0.ENA
+carr <= carr~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[0] <= count[0].DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= count[1].DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|logisimTopLevelShell|main:CIRCUIT_0|count4:count4_2
+clk => carr~reg0.CLK
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+rst => count[0].ACLR
+rst => count[1].ACLR
+rst => count[2].ACLR
+rst => count[3].ACLR
+rst => carr~reg0.ENA
+carr <= carr~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[0] <= count[0].DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= count[1].DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|logisimTopLevelShell|main:CIRCUIT_0|count4:count4_4
+clk => carr~reg0.CLK
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+rst => count[0].ACLR
+rst => count[1].ACLR
+rst => count[2].ACLR
+rst => count[3].ACLR
+rst => carr~reg0.ENA
+carr <= carr~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[0] <= count[0].DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= count[1].DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|logisimTopLevelShell|main:CIRCUIT_0|bcd_7seg:bcd_7seg_3
+entra[0] => Mux0.IN19
+entra[0] => Mux1.IN19
+entra[0] => Mux2.IN19
+entra[0] => Mux3.IN19
+entra[0] => Mux4.IN19
+entra[0] => Mux5.IN19
+entra[0] => Mux6.IN19
+entra[1] => Mux0.IN18
+entra[1] => Mux1.IN18
+entra[1] => Mux2.IN18
+entra[1] => Mux3.IN18
+entra[1] => Mux4.IN18
+entra[1] => Mux5.IN18
+entra[1] => Mux6.IN18
+entra[2] => Mux0.IN17
+entra[2] => Mux1.IN17
+entra[2] => Mux2.IN17
+entra[2] => Mux3.IN17
+entra[2] => Mux4.IN17
+entra[2] => Mux5.IN17
+entra[2] => Mux6.IN17
+entra[3] => Mux0.IN16
+entra[3] => Mux1.IN16
+entra[3] => Mux2.IN16
+entra[3] => Mux3.IN16
+entra[3] => Mux4.IN16
+entra[3] => Mux5.IN16
+entra[3] => Mux6.IN16
+sai[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+sai[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+sai[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+sai[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+sai[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+sai[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+sai[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|logisimTopLevelShell|main:CIRCUIT_0|bcd_7seg:bcd_7seg_2
+entra[0] => Mux0.IN19
+entra[0] => Mux1.IN19
+entra[0] => Mux2.IN19
+entra[0] => Mux3.IN19
+entra[0] => Mux4.IN19
+entra[0] => Mux5.IN19
+entra[0] => Mux6.IN19
+entra[1] => Mux0.IN18
+entra[1] => Mux1.IN18
+entra[1] => Mux2.IN18
+entra[1] => Mux3.IN18
+entra[1] => Mux4.IN18
+entra[1] => Mux5.IN18
+entra[1] => Mux6.IN18
+entra[2] => Mux0.IN17
+entra[2] => Mux1.IN17
+entra[2] => Mux2.IN17
+entra[2] => Mux3.IN17
+entra[2] => Mux4.IN17
+entra[2] => Mux5.IN17
+entra[2] => Mux6.IN17
+entra[3] => Mux0.IN16
+entra[3] => Mux1.IN16
+entra[3] => Mux2.IN16
+entra[3] => Mux3.IN16
+entra[3] => Mux4.IN16
+entra[3] => Mux5.IN16
+entra[3] => Mux6.IN16
+sai[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+sai[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+sai[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+sai[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+sai[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+sai[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+sai[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|logisimTopLevelShell|main:CIRCUIT_0|bcd_7seg:bcd_7seg_4
+entra[0] => Mux0.IN19
+entra[0] => Mux1.IN19
+entra[0] => Mux2.IN19
+entra[0] => Mux3.IN19
+entra[0] => Mux4.IN19
+entra[0] => Mux5.IN19
+entra[0] => Mux6.IN19
+entra[1] => Mux0.IN18
+entra[1] => Mux1.IN18
+entra[1] => Mux2.IN18
+entra[1] => Mux3.IN18
+entra[1] => Mux4.IN18
+entra[1] => Mux5.IN18
+entra[1] => Mux6.IN18
+entra[2] => Mux0.IN17
+entra[2] => Mux1.IN17
+entra[2] => Mux2.IN17
+entra[2] => Mux3.IN17
+entra[2] => Mux4.IN17
+entra[2] => Mux5.IN17
+entra[2] => Mux6.IN17
+entra[3] => Mux0.IN16
+entra[3] => Mux1.IN16
+entra[3] => Mux2.IN16
+entra[3] => Mux3.IN16
+entra[3] => Mux4.IN16
+entra[3] => Mux5.IN16
+entra[3] => Mux6.IN16
+sai[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+sai[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+sai[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+sai[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+sai[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+sai[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+sai[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

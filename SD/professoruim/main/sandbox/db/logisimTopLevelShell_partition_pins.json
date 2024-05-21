@@ -1,0 +1,133 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "L_7_Segment_Display_1_Segment_A",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_1_Segment_B",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_1_Segment_C",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_1_Segment_D",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_1_Segment_E",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_1_Segment_F",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_1_Segment_G",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_2_Segment_A",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_2_Segment_B",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_2_Segment_C",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_2_Segment_D",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_2_Segment_E",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_2_Segment_F",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_2_Segment_G",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_3_Segment_A",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_3_Segment_B",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_3_Segment_C",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_3_Segment_D",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_3_Segment_E",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_3_Segment_F",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_3_Segment_G",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_4_Segment_A",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_4_Segment_B",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_4_Segment_C",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_4_Segment_D",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_4_Segment_E",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_4_Segment_F",
+					"strict" : false
+				},
+				{
+					"name" : "L_7_Segment_Display_4_Segment_G",
+					"strict" : false
+				},
+				{
+					"name" : "PISCA_0",
+					"strict" : false
+				},
+				{
+					"name" : "RESET_0",
+					"strict" : false
+				},
+				{
+					"name" : "fpgaGlobalClock",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

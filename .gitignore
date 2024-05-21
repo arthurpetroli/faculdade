@@ -11,3 +11,7 @@
 # Built Visual Studio Code Extensions
 *.vsix
 .Rproj.user
+/Poo/Interfacer/MeuSistema/nbproject/private/
+/Poo/Interfacer/MeuSistema/build/
+/Poo/Gui/JavaApplication1/nbproject/private/
+/Poo/Gui/JavaApplication1/build/
