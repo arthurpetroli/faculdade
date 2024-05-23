@@ -1,0 +1,20 @@
+Processos na Fila do Shortest Job First:
+A B C D E F G H I J 
+Tempo de CPU requerida pelos processos:
+10 11 12 13 14 15 16 17 18 19 
+Tempo de Chegada dos processos:
+0 1 2 3 4 5 6 7 8 9 
+
+Linha do tempo:
+|0|---A---||1|---A---||6|---B---||11|---C---||16|---D---||21|---E---||26|---F---||31|---G---||36|---H---||41|---I---||46|---J---||51|---B---||56|---C---||61|---D---||66|---E---||71|---F---||76|---G---||81|---H---||86|---I---||91|---J---||96|---B---||101|---C---||102|---D---||104|---E---||107|---F---||111|---G---||116|---H---||121|---I---||126|---J---||131|---G---||136|---H---||137|---I---||139|---J---|142|
+
+Tempo de Resposta:
+A B C D E F G H I J 
+10 100 101 103 106 110 130 131 133 136 
+
+Tempo de Espera:
+A B C D E F G H I J 
+0 80 80 80 80 80 95 95 95 95 
+
+Tempo Médio de Resposta: 106.00
+Tempo Médio de Espera: 78.00
