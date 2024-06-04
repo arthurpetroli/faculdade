@@ -17,7 +17,16 @@ int main() {
         {
             pid = fork();
             if (pid == 0) {
-                write(pp3[1], "Mensagem 3\n", 12);
+                pid = fork();
+                if (pid == 0) {
+                    read(pp3[0], buffer, 64);
+                    printf("%s", buffer);
+                    write(pp3[1], "Mensagem 4\n", 12);
+                } else {
+                    read(pp2[0], buffer, 64);
+                    printf("%s", buffer);
+                    write(pp3[1], "Mensagem 3\n", 12);
+                }
             } else {
                 read(pp3[0], buffer, 64);
                 printf("%s", buffer);

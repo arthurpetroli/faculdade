@@ -1,0 +1,7 @@
+Explique o que são processos. Qual a diferença entre processos e threads?
+
+Processos são instâncias de programas em execução em um sistema operacional. Eles são entidades independentes que possuem seu próprio espaço de endereçamento, recursos e contexto de execução. Os processos são isolados uns dos outros e geralmente se comunicam por meio de mecanismos de comunicação interprocessual, como pipes ou sockets.
+
+Threads, por outro lado, são unidades menores de execução dentro de um processo. Elas compartilham o mesmo espaço de endereçamento e recursos do processo pai, mas possuem seu próprio contexto de execução. As threads podem ser executadas simultaneamente e são úteis para realizar tarefas paralelas dentro de um processo.
+
+A diferença fundamental entre processos e threads é que processos são independentes uns dos outros, enquanto as threads compartilham recursos e contexto dentro de um processo. Isso significa que as threads podem compartilhar dados e se comunicar de forma mais eficiente do que os processos, mas também requerem sincronização adequada para evitar condições de corrida e outros problemas de concorrência.

@@ -1,3 +1,8 @@
+#@file: sjf.py
+#@author: Arthur Petroli
+#@date: 29 May 24
+#@brief: Shortest Job First Scheduler implementation in Python for the Operating Systems discipline at UTFPR-AP.
+
 import sys
 from Processes import Processes
 
@@ -48,36 +53,29 @@ def leituraArq(arq):
 
     return p
 
-def roundRobinEscalonador(processos, quantum):
+def SJFescalonador(processos):
     tempo_atual = 0
     fila_execucao = []
     relatorio = []
         
     while processos or fila_execucao:
-
         processosNaoExec = [p for p in processos if p.tempoCheg <= tempo_atual]
         fila_execucao.extend(processosNaoExec)
         for p in processosNaoExec:
             processos.remove(p)
 
         if fila_execucao:
+            fila_execucao.sort(key=lambda x: x.tempoRestante)     
+
             processo_em_execucao = fila_execucao[0]
-            if processo_em_execucao.tempoRestante > quantum:
-                processo_em_execucao.tempoRestante -= quantum
-                for processo in fila_execucao[1:]:
-                    processo.tempoEspera += quantum
-                relatorio.append((tempo_atual, processo_em_execucao.nome))
-                tempo_atual += quantum
-                fila_execucao.append(fila_execucao.pop(0))
-            else:
-                tempo_execucao = processo_em_execucao.tempoRestante
-                processo_em_execucao.tempoRestante = 0
-                processo_em_execucao.final = tempo_atual + tempo_execucao
-                for processo in fila_execucao[1:]:
-                    processo.tempoEspera += tempo_execucao
-                relatorio.append((tempo_atual, processo_em_execucao.nome))
-                tempo_atual += tempo_execucao
+            processo_em_execucao.tempoRestante -= 1
+            for processo in fila_execucao[1:]:
+                processo.tempoEspera += 1
+            if processo_em_execucao.tempoRestante == 0:
+                processo_em_execucao.final = tempo_atual + 1
                 fila_execucao.pop(0)
+            relatorio.append((tempo_atual, processo_em_execucao.nome))
+            tempo_atual += 1
         else:
             tempo_atual += 1
 
@@ -89,7 +87,7 @@ def gerarLinhaTempo(relatorio):
     tempo_atual = 0
     for tempo, processo in relatorio:
         linha_tempo += f"|{tempo_atual}|---{processo}---|"
-        tempo_atual = tempo
+        tempo_atual = tempo + 1
     linha_tempo += f"{tempo_atual}|"
     return linha_tempo
 
@@ -138,5 +136,5 @@ if __name__ == "__main__":
     paths = definePaths(sys.argv)
     processos = leituraArq(paths[0])
     saida = abrirArq(paths)
-    relatorio= roundRobinEscalonador(processos.copy(),5)
+    relatorio= SJFescalonador(processos.copy())
     escritaRelatorio1(paths[1], processos, relatorio)

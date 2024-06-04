@@ -2,6 +2,8 @@
     "files.associations": {
         "*.ejs": "html",
         "stdio.h": "c",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "*.tcc": "cpp",
+        "unistd.h": "c"
     }
 }
