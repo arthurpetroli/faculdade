@@ -1,5 +1,5 @@
 import sys
-from Trabalho1.Processes import Processes
+from Processes import Processes
 
 def definePaths(argv):
     arqPath = argv[1]
@@ -20,7 +20,7 @@ def leituraArq(arq):
     temposCPU = linhas[1].strip().split(';')
     temposCheg = linhas[2].strip().split(';')
 
-    for i in range(min(len(nomes), len(temposCPU)) - 1):
+    for i in range(min(len(nomes), len(temposCPU), len(temposCheg)) - 1):
         nome = nomes[i + 1]
 
         tempoCPU = temposCPU[i + 1]
@@ -52,50 +52,47 @@ def roundRobinEscalonador(processos, quantum):
     tempo_atual = 0
     fila_execucao = []
     relatorio = []
-        
-    while processos or fila_execucao:
 
-        processosNaoExec = [p for p in processos if p.tempoCheg <= tempo_atual]
-        fila_execucao.extend(processosNaoExec)
-        for p in processosNaoExec:
-            processos.remove(p)
+    while processos or fila_execucao:
+        while processos and processos[0].tempoCheg <= tempo_atual:
+            fila_execucao.append(processos.pop(0))
 
         if fila_execucao:
-            processo_em_execucao = fila_execucao[0]
-            if processo_em_execucao.tempoRestante > quantum:
-                processo_em_execucao.tempoRestante -= quantum
-                for processo in fila_execucao[1:]:
-                    processo.tempoEspera += quantum
-                relatorio.append((tempo_atual, processo_em_execucao.nome))
-                tempo_atual += quantum
-                fila_execucao.append(fila_execucao.pop(0))
+            processo_em_execucao = fila_execucao.pop(0)
+            tempo_executado = min(processo_em_execucao.tempoRestante, quantum)
+            processo_em_execucao.tempoRestante -= tempo_executado
+
+            for processo in fila_execucao:
+                processo.tempoEspera += tempo_executado
+
+            if processo_em_execucao.tempoRestante == 0:
+                processo_em_execucao.final = tempo_atual + tempo_executado
             else:
-                tempo_execucao = processo_em_execucao.tempoRestante
-                processo_em_execucao.tempoRestante = 0
-                processo_em_execucao.final = tempo_atual + tempo_execucao
-                for processo in fila_execucao[1:]:
-                    processo.tempoEspera += tempo_execucao
-                relatorio.append((tempo_atual, processo_em_execucao.nome))
-                tempo_atual += tempo_execucao
-                fila_execucao.pop(0)
+                fila_execucao.append(processo_em_execucao)
+
+            relatorio.extend([(tempo_atual + t, processo_em_execucao.nome) for t in range(tempo_executado)])
+            tempo_atual += tempo_executado
         else:
+            relatorio.append((tempo_atual, "---"))
             tempo_atual += 1
 
     return relatorio
-
 
 def gerarLinhaTempo(relatorio):
     linha_tempo = ""
     tempo_atual = 0
     for tempo, processo in relatorio:
+        while tempo_atual < tempo:
+            linha_tempo += f"|{tempo_atual}|---|"
+            tempo_atual += 1
         linha_tempo += f"|{tempo_atual}|---{processo}---|"
-        tempo_atual = tempo
+        tempo_atual += 1
     linha_tempo += f"{tempo_atual}|"
     return linha_tempo
 
 def escritaRelatorio1(arq, processos, relatorio):
     with open(arq, 'w') as saida:
-        saida.write("Processos na Fila do Shortest Job First:\n")
+        saida.write("Processos na Fila do Round Robin:\n")
         for processo in processos:
             saida.write(f"{processo.nome} ")
         saida.write("\nTempo de CPU requerida pelos processos:\n")
@@ -131,12 +128,10 @@ def escritaRelatorio1(arq, processos, relatorio):
         avg_tempo_espera = sum(tempo_espera) / len(tempo_espera)
         saida.write(f"\n\nTempo Médio de Resposta: {avg_tempo_resposta:.2f}\n")
         saida.write(f"Tempo Médio de Espera: {avg_tempo_espera:.2f}\n")
-        
-                    
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     paths = definePaths(sys.argv)
     processos = leituraArq(paths[0])
     saida = abrirArq(paths)
-    relatorio= roundRobinEscalonador(processos.copy(),5)
+    relatorio = roundRobinEscalonador(processos.copy(), 5)
     escritaRelatorio1(paths[1], processos, relatorio)

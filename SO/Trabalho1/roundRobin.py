@@ -3,9 +3,8 @@
 #@date: 29 May 24
 #@brief: Round Robin Scheduler implementation in Python for the Operating Systems discipline at UTFPR-AP.
 
-class Robin:
+class RoundRobinScheduler:
     def __init__(self):
-        # Variáveis de inicialização
         self.time = 0
         self.process = []
         self.size = []
@@ -17,14 +16,13 @@ class Robin:
         self.processos = []
         self.chegada = []
 
-        # Lendo o arquivo process.txt
         file = open('process.txt', 'r')
         lines = file.readlines()
         file.close()
         i = 0
         for line in lines:
             if i == 0:
-                self.time = int(line.strip())  # remove formatting
+                self.time = int(line.strip())
             columns = line.split()
             if columns[0] == "Processo":
                 self.process = list(columns[1:])
@@ -40,14 +38,12 @@ class Robin:
         self.status()
 
     def test(self):
-        # Imprime informações de teste
         print('Quantum:', self.time)
         print("Processos:", self.process)
         print("Tempos:", self.size)
         print("Chegadas:", self.arrival)
 
     def implementation(self):
-        # Implementação do algoritmo Round Robin
         while len(self.arrival) == 0 or (len(self.standby) > 0 and self.counter == 2):
             item = self.standby.pop(0)
             self.process.insert(0, item[0])
@@ -80,7 +76,6 @@ class Robin:
             self.implementation()
 
     def status(self):
-        # Imprime o status final do algoritmo
         counter = 0
         new_timeLine = []
         for tuple in self.timeLine:
@@ -165,4 +160,4 @@ class Robin:
         print('Tempo médio de espera:', media_esperaFinal)
 
 
-robin = Robin()
+scheduler = RoundRobinScheduler()

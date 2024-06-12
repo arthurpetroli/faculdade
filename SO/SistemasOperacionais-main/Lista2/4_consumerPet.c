@@ -17,54 +17,57 @@ char *buf;
 int in = 0;
 int out = 0;
 
-int turn;
-int flag[2];
-
-void peterson_lock(int self) {
-    int other = 1 - self;
-    flag[self] = 1;
-    turn = other;
-    while (flag[other] && turn == other);
-}
-
-void peterson_unlock(int self) {
-    flag[self] = 0;
-}
+int flags[4] = {0}; // 0: Produtor ocupado, 1: Consumidor ocupado, 2: Produtor pronto, 3: Consumidor pronto
 
 void producer() {
-    printf("Producer was born!\n");
+    printf("Produtor nasceu!\n");
 
     while (1) {
-        peterson_lock(0); // Locking for the producer
-        while (*counter == N) ;
-        
-        buf[in] = (char) in + 0x61;
-        printf("Stored... %c \n", buf[in]);
-        
-        in = ++in % N;
+        flags[0] = 1; // Produtor ocupado
+        while (flags[1] && flags[3] == 1)
+            ; // Espera até que o consumidor esteja pronto
+
+        while (*counter == N)
+            ; // Espera até que haja espaço no buffer
+
+        buf[in] = (char)in + 0x61;
+        printf("Armazenado... %c \n", buf[in]);
+
+        in = (in + 1) % N;
         (*counter)++;
-        peterson_unlock(0); // Unlocking for the producer
+
+        flags[3] = 1; // Produtor está pronto
+
+        flags[0] = 0; // Produtor não está mais ocupado
     }
 }
 
 void consumer() {
-    printf("Consumer was born!\n");
+    printf("Consumidor nasceu!\n");
 
     while (1) {
-        peterson_lock(1); // Locking for the consumer
-        while (*counter == 0) ;
-        
+        flags[1] = 1; // Consumidor ocupado
+        while (flags[0] && flags[3] == 0)
+            ; // Espera até que o produtor esteja pronto
+
+        while (*counter == 0)
+            ; // Espera até que haja itens no buffer
+
         char dado = buf[out];
-        printf("Consumed... %c \n", dado);
-        
-        out = ++out % N;
+        buf[out] = ' ';
+        printf("Consumido... %c \n", dado);
+
+        out = (out + 1) % N;
         (*counter)--;
-        peterson_unlock(1); // Unlocking for the consumer
+
+        flags[3] = 0; // Consumidor está pronto
+
+        flags[1] = 0; // Consumidor não está mais ocupado
     }
 }
 
 int main() {
-    printf("The Producer x Consumer Problem\n");
+    printf("O Problema do Produtor x Consumidor\n");
 
     key_t key = ftok("/home", 'A');
     shmid = shmget(key, SHM_SIZE, 0644 | IPC_CREAT);
@@ -78,8 +81,8 @@ int main() {
 
     int pid = fork();
 
-    if(pid == 0){
-        producer();       
+    if (pid == 0) {
+        producer();
     } else {
         consumer();
     }
@@ -92,3 +95,9 @@ int main() {
 
     return 0;
 }
+
+
+/*Este código cria um produtor e um consumidor que compartilham um buffer usando memória compartilhada. 
+O produtor produz dados e os armazena no buffer, enquanto o consumidor retira esses dados do buffer e os consome.
+Os produtores e consumidores são sincronizados usando flags para garantir que eles estejam prontos para produzir ou consumir antes de prosseguir.
+*/

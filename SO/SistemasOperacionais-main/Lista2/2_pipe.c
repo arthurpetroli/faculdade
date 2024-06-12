@@ -19,29 +19,23 @@ int main() {
             if (pid == 0) {
                 pid = fork();
                 if (pid == 0) {
-                    read(pp3[0], buffer, 64);
-                    printf("%s", buffer);
-                    write(pp3[1], "Mensagem 4\n", 12);
+                    write(pp3[1], "Processo 4\n", 12);
                 } else {
-                    read(pp2[0], buffer, 64);
-                    printf("%s", buffer);
-                    write(pp3[1], "Mensagem 3\n", 12);
+                    read(pp3[0], buffer, 64);
+                    write(pp2[1], buffer, 64);
                 }
             } else {
-                read(pp3[0], buffer, 64);
-                printf("%s", buffer);
-                write(pp2[1], "Mensagem 2\n", 12);
+                read(pp2[0], buffer, 64);
+                write(pp[1], buffer, 64);
             }
         } else {
-            read(pp2[0], buffer, 64);
-            printf("%s", buffer);
-            write(pp[1], "Mensagem 1\n", 12);
+            read(pp[0], buffer, 64);
+            write(pp3[1], buffer, 64);
         }
     } else {
-        read(pp[0], buffer, 64);
-        printf("%s", buffer);
+        read(pp3[0], buffer, 64);
+        printf("Mensagem recebida no primeiro processo: %s", buffer);
     }
-
 
     return 0;
 }
