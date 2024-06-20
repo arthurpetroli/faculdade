@@ -3,20 +3,20 @@ A B C D
 Tempo de CPU requerida pelos processos:
 2 8 3 5 
 Tempo de Chegada dos processos:
-0 1 2 3 
+30 1 2 3 
 Prioridades dos processos:
 3 1 2 3 
 
 Linha do tempo:
-|0|---A---||1|---B---||2|---B---||3|---B---||4|---B---||5|---B---||6|---B---||7|---B---||8|---B---||9|---C---||10|---C---||11|---C---||12|---A---||13|---D---||14|---D---||15|---D---||16|---D---||17|---D---|18|
+|0|---B---||2|---B---||3|---B---||4|---B---||5|---B---||6|---B---||7|---B---||8|---B---||9|---C---||10|---C---||11|---C---||12|---D---||13|---D---||14|---D---||15|---D---||16|---D---||17|---A---||31|---A---|32|
 
 Tempo de Resposta:
 A B C D 
-13 8 10 15 
+2 8 10 14 
 
 Tempo de Espera:
 A B C D 
-11 0 7 10 
+0 0 7 9 
 
-Tempo Médio de Resposta: 11.50
-Tempo Médio de Espera: 7.00
+Tempo Médio de Resposta: 8.50
+Tempo Médio de Espera: 4.00
