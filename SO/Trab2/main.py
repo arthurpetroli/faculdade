@@ -71,12 +71,6 @@ def simulate_paging(page_sequence, ram_capacity, interactive=False):
 
     update_memory_display(memory, page_faults)
 
-# Função para executar a verificação direta (sem interação passo a passo)
-def execute_direct_check():
-    pages, ram_capacity = parse_input_file('test.txt')
-    if pages and ram_capacity:
-        simulate_paging(pages, ram_capacity)
-
 # Função para executar a verificação interativa (passo a passo)
 def execute_step_by_step_check():
     pages, ram_capacity = parse_input_file('test.txt')
@@ -90,14 +84,13 @@ def continue_simulation():
 # Configuração da interface gráfica usando Tkinter
 root = tk.Tk()
 root.geometry('500x400')
-root.title('Simulação de Paginação')
+root.title('Simulação de Paginação LRU')
 
 menubar = Menu(root)
 root.config(menu=menubar)
 
 file_menu = Menu(menubar, tearoff=0)
-file_menu.add_command(label='Verificação Direta', command=execute_direct_check)
-file_menu.add_command(label='Verificação Passo a Passo', command=execute_step_by_step_check)
+file_menu.add_command(label='Verificação', command=execute_step_by_step_check)
 menubar.add_cascade(label="Modo", menu=file_menu)
 
 output_text = tk.Text(root, height=20, width=50)
