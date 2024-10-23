@@ -60,4 +60,14 @@ set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_RO
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
 set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform1.vwf
+set_location_assignment PIN_C11 -to b
+set_location_assignment PIN_C10 -to a
+set_location_assignment PIN_A8 -to s
+set_location_assignment PIN_A9 -to t
+set_location_assignment PIN_A10 -to u
+set_location_assignment PIN_B10 -to v
+set_location_assignment PIN_D13 -to w
+set_location_assignment PIN_C13 -to x
+set_location_assignment PIN_E14 -to y
+set_location_assignment PIN_D14 -to z
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

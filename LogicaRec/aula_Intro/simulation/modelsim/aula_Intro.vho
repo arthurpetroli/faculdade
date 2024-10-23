@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition"
 
--- DATE "10/16/2024 09:28:47"
+-- DATE "10/23/2024 09:00:57"
 
 -- 
 -- Device: Altera 10M50DAF484C7G Package FBGA484
@@ -102,16 +102,16 @@ ENTITY 	aula_Intro IS
 END aula_Intro;
 
 -- Design Ports Information
--- s	=>  Location: PIN_D5,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- t	=>  Location: PIN_P9,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- u	=>  Location: PIN_W9,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- v	=>  Location: PIN_AB4,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- w	=>  Location: PIN_AB3,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- x	=>  Location: PIN_AA3,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- y	=>  Location: PIN_W7,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- z	=>  Location: PIN_Y4,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- a	=>  Location: PIN_E8,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- b	=>  Location: PIN_AB2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- s	=>  Location: PIN_A8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- t	=>  Location: PIN_A9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- u	=>  Location: PIN_A10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- v	=>  Location: PIN_B10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- w	=>  Location: PIN_D13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- x	=>  Location: PIN_C13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- y	=>  Location: PIN_E14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- z	=>  Location: PIN_D14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- a	=>  Location: PIN_C10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- b	=>  Location: PIN_C11,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
 ARCHITECTURE structure OF aula_Intro IS
@@ -196,7 +196,7 @@ PORT MAP (
 	devclrn => ww_devclrn,
 	devpor => ww_devpor);
 
--- Location: LCCOMB_X44_Y52_N16
+-- Location: LCCOMB_X44_Y41_N8
 \~QUARTUS_CREATED_GND~I\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \~QUARTUS_CREATED_GND~I_combout\ = GND
@@ -209,7 +209,7 @@ GENERIC MAP (
 PORT MAP (
 	combout => \~QUARTUS_CREATED_GND~I_combout\);
 
--- Location: IOOBUF_X24_Y39_N30
+-- Location: IOOBUF_X46_Y54_N2
 \s~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -221,7 +221,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \s~output_o\);
 
--- Location: IOOBUF_X22_Y0_N23
+-- Location: IOOBUF_X46_Y54_N23
 \t~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -233,7 +233,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \t~output_o\);
 
--- Location: IOOBUF_X22_Y0_N2
+-- Location: IOOBUF_X51_Y54_N16
 \u~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -245,7 +245,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \u~output_o\);
 
--- Location: IOOBUF_X26_Y0_N23
+-- Location: IOOBUF_X46_Y54_N9
 \v~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -257,7 +257,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \v~output_o\);
 
--- Location: IOOBUF_X22_Y0_N9
+-- Location: IOOBUF_X56_Y54_N30
 \w~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -269,7 +269,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \w~output_o\);
 
--- Location: IOOBUF_X26_Y0_N30
+-- Location: IOOBUF_X58_Y54_N23
 \x~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -281,7 +281,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \x~output_o\);
 
--- Location: IOOBUF_X24_Y0_N9
+-- Location: IOOBUF_X66_Y54_N23
 \y~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -293,7 +293,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \y~output_o\);
 
--- Location: IOOBUF_X24_Y0_N16
+-- Location: IOOBUF_X56_Y54_N9
 \z~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -305,7 +305,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \z~output_o\);
 
--- Location: IOIBUF_X24_Y39_N8
+-- Location: IOIBUF_X51_Y54_N29
 \a~input\ : fiftyfivenm_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -317,7 +317,7 @@ PORT MAP (
 	i => ww_a,
 	o => \a~input_o\);
 
--- Location: IOIBUF_X22_Y0_N15
+-- Location: IOIBUF_X51_Y54_N22
 \b~input\ : fiftyfivenm_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -329,48 +329,48 @@ PORT MAP (
 	i => ww_b,
 	o => \b~input_o\);
 
--- Location: LCCOMB_X24_Y4_N0
+-- Location: LCCOMB_X51_Y53_N24
 \u~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \u~0_combout\ = (\b~input_o\ & \a~input_o\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010000010100000",
+	lut_mask => "1100000011000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \b~input_o\,
+	datab => \b~input_o\,
 	datac => \a~input_o\,
 	combout => \u~0_combout\);
 
--- Location: LCCOMB_X24_Y4_N26
+-- Location: LCCOMB_X51_Y53_N2
 \v~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \v~0_combout\ = (\b~input_o\) # (\a~input_o\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111101011111010",
+	lut_mask => "1111110011111100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \b~input_o\,
+	datab => \b~input_o\,
 	datac => \a~input_o\,
 	combout => \v~0_combout\);
 
--- Location: LCCOMB_X24_Y4_N4
+-- Location: LCCOMB_X51_Y53_N12
 \y~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \y~0_combout\ = \b~input_o\ $ (\a~input_o\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0101101001011010",
+	lut_mask => "0011110000111100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \b~input_o\,
+	datab => \b~input_o\,
 	datac => \a~input_o\,
 	combout => \y~0_combout\);
 
