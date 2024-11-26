@@ -1,0 +1,31 @@
+|Atividade4
+entradas[0] => Mux0.IN14
+entradas[1] => Mux1.IN14
+entradas[2] => Mux2.IN14
+entradas[3] => Mux3.IN14
+entradas[4] => Mux0.IN10
+entradas[5] => Mux1.IN10
+entradas[6] => Mux2.IN10
+entradas[7] => Mux3.IN10
+entradas[8] => Mux0.IN6
+entradas[9] => Mux1.IN6
+entradas[10] => Mux2.IN6
+entradas[11] => Mux3.IN6
+entradas[12] => Mux0.IN2
+entradas[13] => Mux1.IN2
+entradas[14] => Mux2.IN2
+entradas[15] => Mux3.IN2
+sel[0] => Mux0.IN19
+sel[0] => Mux1.IN19
+sel[0] => Mux2.IN19
+sel[0] => Mux3.IN19
+sel[1] => Mux0.IN18
+sel[1] => Mux1.IN18
+sel[1] => Mux2.IN18
+sel[1] => Mux3.IN18
+y[0] << Mux0.DB_MAX_OUTPUT_PORT_TYPE
+y[1] << Mux1.DB_MAX_OUTPUT_PORT_TYPE
+y[2] << Mux2.DB_MAX_OUTPUT_PORT_TYPE
+y[3] << Mux3.DB_MAX_OUTPUT_PORT_TYPE
+
+
