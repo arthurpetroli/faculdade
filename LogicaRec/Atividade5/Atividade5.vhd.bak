@@ -1,0 +1,78 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+------------------------------------------
+entity led_sequencer is
+    generic (
+        clk_freq : integer := 50_000_000 -- Frequência do clock em Hz
+    );
+    port (
+        clk       : in std_logic;               -- Clock
+        reset     : in std_logic;               -- Botão de reset (ativo em 0)
+        enable    : in std_logic;               -- Chave de enable
+        speed_sel : in std_logic_vector(1 downto 0); -- Seleção de velocidade
+        leds      : out std_logic_vector(9 downto 0) -- LEDs de saída
+    );
+end entity;
+------------------------------------------
+architecture behavior of led_sequencer is
+    -- Constantes para diferentes velocidades (ajuste conforme necessário)
+    constant speed_slow  : integer := clk_freq / 4; -- Velocidade lenta (4 Hz)
+    constant speed_fast  : integer := clk_freq / 10; -- Velocidade rápida (10 Hz)
+
+    -- Sinal interno para contador de clock
+    signal clk_counter   : integer range 0 to clk_freq - 1 := 0;
+    signal led_index     : integer range 0 to 9 := 0; -- Índice do LED atual
+    signal direction     : std_logic := '1'; -- Direção do sequenciamento ('1' = crescente, '0' = decrescente)
+    signal current_speed : integer := speed_slow; -- Velocidade atual
+begin
+
+    process(clk, reset)
+    begin
+        if reset = '0' then -- Resetar o circuito
+            clk_counter <= 0;
+            led_index   <= 0;
+            direction   <= '1';
+            leds        <= (others => '0');
+        elsif rising_edge(clk) then
+            if enable = '1' then -- Verificar se o enable está ativo
+                -- Configurar velocidade baseada na seleção de velocidade
+                case speed_sel is
+                    when "00" => current_speed <= speed_slow;
+                    when "01" => current_speed <= speed_fast;
+                    when others => current_speed <= speed_slow;
+                end case;
+
+                -- Incrementar contador de clock
+                if clk_counter < current_speed - 1 then
+                    clk_counter <= clk_counter + 1;
+                else
+                    clk_counter <= 0;
+
+                    -- Sequenciamento dos LEDs
+                    leds <= (others => '0'); -- Apagar todos os LEDs
+                    leds(led_index) <= '1'; -- Acender o LED atual
+
+                    -- Atualizar índice e direção
+                    if direction = '1' then
+                        if led_index = 9 then
+                            direction <= '0'; -- Inverter direção
+                            led_index <= 8;
+                        else
+                            led_index <= led_index + 1;
+                        end if;
+                    else
+                        if led_index = 0 then
+                            direction <= '1'; -- Inverter direção
+                            led_index <= 1;
+                        else
+                            led_index <= led_index - 1;
+                        end if;
+                    end if;
+                end if;
+            end if;
+        end if;
+    end process;
+
+end architecture;
+------------------------------------------
