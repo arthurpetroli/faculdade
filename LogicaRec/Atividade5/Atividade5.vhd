@@ -3,69 +3,65 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity Atividade5 is
-    generic (
-        clk_freq : integer := 50_000_000 -- Frequência do clock em Hz
-    );
     port (
-        clk       : in std_logic;               -- Clock
-        reset     : in std_logic;               -- Botão de reset (ativo em 0)
-        enable    : in std_logic;               -- Chave de enable
-        speed_sel : in std_logic;               -- Seleção de velocidade (0 = lenta, 1 = rápida)
-        leds      : out std_logic_vector(9 downto 0) -- LEDs de saída
+        clk         : in  std_logic;               -- Clock
+        reset       : in  std_logic;               -- Botão de reset (ativo em '0')
+        enable      : in  std_logic;               -- Habilitar (ativo em '1')
+        speed_ctrl  : in  std_logic_vector(1 downto 0); -- Controle de velocidade (2 opções)
+        leds        : out std_logic_vector(9 downto 0)  -- LEDs (ativos em 0 na DE10-Lite)
     );
 end entity;
 
 architecture Atividade5 of Atividade5 is
-    -- Constantes para as velocidades
-    constant speed_slow  : integer := clk_freq / 2;  -- Velocidade lenta (2 Hz)
-    constant speed_fast  : integer := clk_freq / 10; -- Velocidade rápida (10 Hz)
-
-    -- Sinais internos
-    signal clk_counter   : integer range 0 to clk_freq - 1 := 0; -- Contador de clock
-    signal led_index     : integer range 0 to 9 := 0;            -- Índice do LED atual
-    signal direction     : std_logic := '1';                    -- Direção (1 = crescente, 0 = decrescente)
-    signal current_speed : integer := speed_slow;               -- Velocidade atual
+    signal counter     : integer := 0;                     -- Contador para controle de tempo
+    signal led_index   : integer range 0 to 9 := 0;        -- Índice do LED ativo
+    signal direction   : std_logic := '1';                -- Direção ('1' para subir, '0' para descer)
+    signal delay       : integer := 25000000;              -- Valor do atraso (ajustável pela velocidade)
+    constant slow_speed : integer := 50000000;             -- Velocidade lenta
+    constant fast_speed : integer := 25000000;             -- Velocidade rápida
 begin
 
     process(clk, reset)
     begin
-        if reset = '0' then -- Resetar o circuito
-            clk_counter <= 0;
-            led_index   <= 0;
-            direction   <= '1';
-            leds <= (others => '0'); -- Apaga todos os LEDs
-            leds(0) <= '1';          -- Acende o LED 0
+        if reset = '0' then
+            -- Resetar circuito
+            counter <= 0;
+            led_index <= 0;
+            direction <= '1'; -- Reinicia com direção para "subir"
+            leds <= (others => '1'); -- Apagar todos os LEDs (ativo em '0' na DE10-Lite)
         elsif rising_edge(clk) then
-            if enable = '1' then -- Verifica se o enable está ativo
-                -- Seleção de velocidade
-                if speed_sel = '0' then
-                    current_speed <= speed_slow;
+            if enable = '1' then
+                -- Selecionar velocidade com base no controle
+                case speed_ctrl is
+                    when "00" => delay <= slow_speed; -- Velocidade lenta
+                    when "01" => delay <= fast_speed; -- Velocidade rápida
+                    when others => delay <= slow_speed; -- Valor padrão
+                end case;
+
+                -- Incrementar contador
+                if counter < delay then
+                    counter <= counter + 1;
                 else
-                    current_speed <= speed_fast;
-                end if;
+                    counter <= 0;
 
-                -- Incrementa o contador do clock
-                if clk_counter < current_speed - 1 then
-                    clk_counter <= clk_counter + 1;
-                else
-                    clk_counter <= 0;
+                    -- Atualizar LEDs
+                    leds <= (others => '0');       -- Apagar todos os LEDs
+                    leds(led_index) <= '1';       -- Acender LED atual (ativo em '0')
 
-                    -- Sequenciamento dos LEDs
-                    leds <= (others => '0'); -- Apaga todos os LEDs
-                    leds(led_index) <= '1'; -- Acende o LED atual
-
-                    -- Atualiza o índice e a direção
+                    -- Alternar LED ativo com base na direção
                     if direction = '1' then
+                        -- Direção "subir"
                         if led_index = 9 then
-                            direction <= '0'; -- Inverte a direção para decrescente
-                            led_index <= 8;
+                            direction <= '0'; -- Mudar para "descer"
+                            led_index <= led_index - 1;
                         else
                             led_index <= led_index + 1;
                         end if;
                     else
+                        -- Direção "descer"
                         if led_index = 0 then
-                            direction <= '1'; -- Inverte a direção para crescente
-                            led_index <= 1;
+                            direction <= '1'; -- Mudar para "subir"
+                            led_index <= led_index + 1;
                         else
                             led_index <= led_index - 1;
                         end if;
