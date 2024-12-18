@@ -1,0 +1,25 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+package body my_package is
+    procedure find_min_max (
+        signal x: in unsigned_array;
+        signal maior, menor: out unsigned
+    ) is
+        variable maior_var, menor_var: unsigned(x(0)'length-1 downto 0);
+    begin
+        maior_var := (others => '0');
+        menor_var := (others => '1');
+        for i in x'range loop
+            if x(i) > maior_var then
+                maior_var := x(i);
+            elsif x(i) < menor_var then
+                menor_var := x(i);
+            end if;
+        end loop;
+        -- Atribuir os valores finais às saídas
+        maior <= maior_var;
+        menor <= menor_var;
+    end procedure;
+end my_package;

@@ -1,0 +1,137 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "led",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_a[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_a[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_a[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_a[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_a[4]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_a[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_a[6]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_b[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_b[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_b[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_b[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_b[4]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_b[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_b[6]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_c[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_c[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_c[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_c[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_c[4]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_c[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_c[6]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_d[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_d[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_d[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_d[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_d[4]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_d[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ssd_d[6]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "pause",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
