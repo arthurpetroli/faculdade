@@ -1,0 +1,128 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity Atividade8 is
+    Port (
+        clk : in STD_LOGIC; -- Clock
+        rst : in STD_LOGIC; -- Reset
+        modo : in STD_LOGIC_VECTOR(1 downto 0); -- Modo: 00 = Normal, 01 = Standby, 10 = Teste
+        led1_verde : out STD_LOGIC;
+        led1_amarelo : out STD_LOGIC;
+        led1_vermelho : out STD_LOGIC;
+        led2_verde : out STD_LOGIC;
+        led2_amarelo : out STD_LOGIC;
+        led2_vermelho : out STD_LOGIC
+    );
+end Atividade8;
+
+architecture Atividade8 of Atividade8 is
+    type state_type is (S1, S2, S3, S4, Standby, Teste);
+    signal current_state, next_state : state_type;
+    signal counter : INTEGER range 0 to 100 := 0;
+    signal timer : INTEGER := 50; -- Ajustar para temporização
+
+begin
+
+    process(clk, rst)
+    begin
+        if rst = '1' then
+            current_state <= S1;
+            counter <= 0;
+        elsif rising_edge(clk) then
+            if counter < timer then
+                counter <= counter + 1;
+            else
+                counter <= 0;
+                current_state <= next_state;
+            end if;
+        end if;
+    end process;
+
+    process(current_state, modo)
+    begin
+        -- Default outputs
+        led1_verde <= '0';
+        led1_amarelo <= '0';
+        led1_vermelho <= '0';
+        led2_verde <= '0';
+        led2_amarelo <= '0';
+        led2_vermelho <= '0';
+        next_state <= current_state;
+
+        case current_state is
+            when S1 =>
+                led1_verde <= '1';
+                led2_vermelho <= '1';
+                if modo = "00" then
+                    next_state <= S2;
+                elsif modo = "01" then
+                    next_state <= Standby;
+                elsif modo = "10" then
+                    next_state <= Teste;
+                end if;
+
+            when S2 =>
+                led1_amarelo <= '1';
+                led2_vermelho <= '1';
+                if modo = "00" then
+                    next_state <= S3;
+                elsif modo = "01" then
+                    next_state <= Standby;
+                elsif modo = "10" then
+                    next_state <= Teste;
+                end if;
+
+            when S3 =>
+                led1_vermelho <= '1';
+                led2_verde <= '1';
+                if modo = "00" then
+                    next_state <= S4;
+                elsif modo = "01" then
+                    next_state <= Standby;
+                elsif modo = "10" then
+                    next_state <= Teste;
+                end if;
+
+            when S4 =>
+                led1_vermelho <= '1';
+                led2_amarelo <= '1';
+                if modo = "00" then
+                    next_state <= S1;
+                elsif modo = "01" then
+                    next_state <= Standby;
+                elsif modo = "10" then
+                    next_state <= Teste;
+                end if;
+
+            when Standby =>
+                led1_amarelo <= counter(0); -- Piscar com clock
+                led2_amarelo <= counter(0);
+                if modo = "00" then
+                    next_state <= S1;
+                end if;
+
+            when Teste =>
+                case counter mod 3 is
+                    when 0 =>
+                        led1_verde <= '1';
+                        led2_verde <= '1';
+                    when 1 =>
+                        led1_amarelo <= '1';
+                        led2_amarelo <= '1';
+                    when 2 =>
+                        led1_vermelho <= '1';
+                        led2_vermelho <= '1';
+                    when others => null;
+                end case;
+                if modo = "00" then
+                    next_state <= S1;
+                end if;
+
+            when others =>
+                next_state <= S1;
+        end case;
+    end process;
+
+end Atividade8;

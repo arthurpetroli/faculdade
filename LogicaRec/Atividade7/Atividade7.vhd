@@ -9,6 +9,8 @@ entity Atividade7 is
         clk     : in  STD_LOGIC;
         reset   : in  STD_LOGIC;
         pause   : in  STD_LOGIC;
+        SW8     : in  STD_LOGIC; -- Switch 8 para seleção de tempo
+        SW9     : in  STD_LOGIC; -- Switch 9 para seleção de tempo
         led     : out STD_LOGIC;
         ssd_a   : out STD_LOGIC_VECTOR (6 downto 0);
         ssd_b   : out STD_LOGIC_VECTOR (6 downto 0);
@@ -64,7 +66,16 @@ begin
     process(clk, reset)
     begin
         if reset = '1' then
-            count <= 60;
+            -- Configuração de tempo inicial com base nos switches
+            if (SW9 = '0' and SW8 = '0') then
+                count <= 30; -- Tempo inicial: 30 segundos
+            elsif (SW9 = '0' and SW8 = '1') then
+                count <= 60; -- Tempo inicial: 60 segundos
+            elsif (SW9 = '1' and SW8 = '0') then
+                count <= 90; -- Tempo inicial: 90 segundos
+            else
+                count <= 120; -- Tempo inicial: 120 segundos
+            end if;
             paused <= '0';
             clk_div <= 0;
         elsif rising_edge(clk) then

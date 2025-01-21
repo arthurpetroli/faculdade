@@ -130,6 +130,14 @@
 				{
 					"name" : "pause",
 					"strict" : false
+				},
+				{
+					"name" : "SW9",
+					"strict" : false
+				},
+				{
+					"name" : "SW8",
+					"strict" : false
 				}
 			]
 		}

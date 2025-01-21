@@ -1,0 +1,49 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "led1_verde",
+					"strict" : false
+				},
+				{
+					"name" : "led1_amarelo",
+					"strict" : false
+				},
+				{
+					"name" : "led1_vermelho",
+					"strict" : false
+				},
+				{
+					"name" : "led2_verde",
+					"strict" : false
+				},
+				{
+					"name" : "led2_amarelo",
+					"strict" : false
+				},
+				{
+					"name" : "led2_vermelho",
+					"strict" : false
+				},
+				{
+					"name" : "modo[0]",
+					"strict" : false
+				},
+				{
+					"name" : "modo[1]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rst",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
