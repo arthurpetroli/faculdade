@@ -1,4 +1,4 @@
--- Copyright (C) 2024  Intel Corporation. All rights reserved.
+-- Copyright (C) 2023  Intel Corporation. All rights reserved.
 -- Your use of Intel Corporation's design tools, logic functions 
 -- and other software and tools, and any partner logic 
 -- functions, and any output files from any of the foregoing 
@@ -15,9 +15,9 @@
 
 -- VENDOR "Altera"
 -- PROGRAM "Quartus Prime"
--- VERSION "Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition"
+-- VERSION "Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition"
 
--- DATE "01/02/2025 11:41:36"
+-- DATE "02/05/2025 08:43:35"
 
 -- 
 -- Device: Altera 10M50DAF484C7G Package FBGA484
@@ -95,11 +95,11 @@ ENTITY 	Atividade7 IS
 	pause : IN std_logic;
 	SW8 : IN std_logic;
 	SW9 : IN std_logic;
-	led : BUFFER std_logic;
-	ssd_a : BUFFER std_logic_vector(6 DOWNTO 0);
-	ssd_b : BUFFER std_logic_vector(6 DOWNTO 0);
-	ssd_c : BUFFER std_logic_vector(6 DOWNTO 0);
-	ssd_d : BUFFER std_logic_vector(6 DOWNTO 0)
+	led : OUT std_logic;
+	ssd_a : OUT std_logic_vector(6 DOWNTO 0);
+	ssd_b : OUT std_logic_vector(6 DOWNTO 0);
+	ssd_c : OUT std_logic_vector(6 DOWNTO 0);
+	ssd_d : OUT std_logic_vector(6 DOWNTO 0)
 	);
 END Atividade7;
 
@@ -1710,9 +1710,9 @@ SIGNAL \WideOr18~3_combout\ : std_logic;
 SIGNAL count : std_logic_vector(13 DOWNTO 0);
 SIGNAL clk_div : std_logic_vector(31 DOWNTO 0);
 SIGNAL \ALT_INV_pause~input_o\ : std_logic;
-SIGNAL \ALT_INV_WideOr21~combout\ : std_logic;
-SIGNAL \ALT_INV_WideOr18~3_combout\ : std_logic;
 SIGNAL \ALT_INV_reset~input_o\ : std_logic;
+SIGNAL \ALT_INV_WideOr18~3_combout\ : std_logic;
+SIGNAL \ALT_INV_WideOr21~combout\ : std_logic;
 
 COMPONENT hard_block
     PORT (
@@ -1743,9 +1743,9 @@ ww_devpor <= devpor;
 
 \clk~inputclkctrl_INCLK_bus\ <= (vcc & vcc & vcc & \clk~input_o\);
 \ALT_INV_pause~input_o\ <= NOT \pause~input_o\;
-\ALT_INV_WideOr21~combout\ <= NOT \WideOr21~combout\;
-\ALT_INV_WideOr18~3_combout\ <= NOT \WideOr18~3_combout\;
 \ALT_INV_reset~input_o\ <= NOT \reset~input_o\;
+\ALT_INV_WideOr18~3_combout\ <= NOT \WideOr18~3_combout\;
+\ALT_INV_WideOr21~combout\ <= NOT \WideOr21~combout\;
 auto_generated_inst : hard_block
 PORT MAP (
 	devoe => ww_devoe,

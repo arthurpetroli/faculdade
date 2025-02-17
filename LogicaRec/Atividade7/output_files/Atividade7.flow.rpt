@@ -1,6 +1,6 @@
 Flow report for Atividade7
-Fri Jan 03 10:48:10 2025
-Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Wed Feb  5 08:43:35 2025
+Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
 ---------------------
@@ -21,7 +21,7 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2020  Intel Corporation. All rights reserved.
+Copyright (C) 2023  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
@@ -38,28 +38,28 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+----------------------------------------------------------------------------------+
-; Flow Summary                                                                     ;
-+------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Fri Jan 03 10:48:10 2025       ;
-; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
-; Revision Name                      ; Atividade7                                  ;
-; Top-level Entity Name              ; Atividade7                                  ;
-; Family                             ; MAX 10                                      ;
-; Device                             ; 10M50DAF484C7G                              ;
-; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 1,176 / 49,760 ( 2 % )                      ;
-;     Total combinational functions  ; 1,176 / 49,760 ( 2 % )                      ;
-;     Dedicated logic registers      ; 47 / 49,760 ( < 1 % )                       ;
-; Total registers                    ; 47                                          ;
-; Total pins                         ; 34 / 360 ( 9 % )                            ;
-; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                       ;
-; Embedded Multiplier 9-bit elements ; 0 / 288 ( 0 % )                             ;
-; Total PLLs                         ; 0 / 4 ( 0 % )                               ;
-; UFM blocks                         ; 0 / 1 ( 0 % )                               ;
-; ADC blocks                         ; 0 / 2 ( 0 % )                               ;
-+------------------------------------+---------------------------------------------+
++-------------------------------------------------------------------------------------+
+; Flow Summary                                                                        ;
++------------------------------------+------------------------------------------------+
+; Flow Status                        ; Successful - Wed Feb  5 08:43:35 2025          ;
+; Quartus Prime Version              ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
+; Revision Name                      ; Atividade7                                     ;
+; Top-level Entity Name              ; Atividade7                                     ;
+; Family                             ; MAX 10                                         ;
+; Device                             ; 10M50DAF484C7G                                 ;
+; Timing Models                      ; Final                                          ;
+; Total logic elements               ; 1,176 / 49,760 ( 2 % )                         ;
+;     Total combinational functions  ; 1,176 / 49,760 ( 2 % )                         ;
+;     Dedicated logic registers      ; 47 / 49,760 ( < 1 % )                          ;
+; Total registers                    ; 47                                             ;
+; Total pins                         ; 34 / 360 ( 9 % )                               ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                          ;
+; Embedded Multiplier 9-bit elements ; 0 / 288 ( 0 % )                                ;
+; Total PLLs                         ; 0 / 4 ( 0 % )                                  ;
+; UFM blocks                         ; 0 / 1 ( 0 % )                                  ;
+; ADC blocks                         ; 0 / 2 ( 0 % )                                  ;
++------------------------------------+------------------------------------------------+
 
 
 +-----------------------------------------+
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 01/03/2025 10:47:38 ;
+; Start date & time ; 02/05/2025 08:42:46 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Atividade7          ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 48909492119268.173591205718380         ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 145862440372592.173875576610400        ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -100,12 +100,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 4852 MB             ; 00:00:16                           ;
-; Fitter               ; 00:00:11     ; 1.2                     ; 6075 MB             ; 00:00:19                           ;
-; Assembler            ; 00:00:02     ; 1.0                     ; 4699 MB             ; 00:00:02                           ;
-; Timing Analyzer      ; 00:00:03     ; 1.5                     ; 4906 MB             ; 00:00:03                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 4652 MB             ; 00:00:00                           ;
-; Total                ; 00:00:27     ; --                      ; --                  ; 00:00:40                           ;
+; Analysis & Synthesis ; 00:00:13     ; 1.0                     ; 4859 MB             ; 00:00:18                           ;
+; Fitter               ; 00:00:17     ; 1.1                     ; 5786 MB             ; 00:00:17                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 4724 MB             ; 00:00:02                           ;
+; Timing Analyzer      ; 00:00:04     ; 1.2                     ; 4866 MB             ; 00:00:04                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4651 MB             ; 00:00:01                           ;
+; Total                ; 00:00:39     ; --                      ; --                  ; 00:00:42                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -114,11 +114,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; PC-Petroli       ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; PC-Petroli       ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; PC-Petroli       ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; PC-Petroli       ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; PC-Petroli       ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; ap-607992        ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; ap-607992        ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; ap-607992        ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; ap-607992        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; ap-607992        ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
