@@ -4,7 +4,7 @@
 clc; clear; close all;
 
 %% Carregamento do Áudio
-[audio_signal, sr] = audioread('soft-piano-100-bpm-121529.mp3');
+[audio_signal, sr] = audioread('piano-chords.mp3');
 
 %sr - frequencia
 
