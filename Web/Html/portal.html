@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CursoComp</title> 
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+
+<body>
+    <header>
+        <h1>CursoComp</h1>
+        <nav>
+            <ul>
+                <li><a href="H:\faculdade\Web\Html\portal.html">Home</a></li>
+                <li><a href="H:\faculdade\Web\Html\sobre.html">Sobre</a></li>
+                <li><a href="H:\faculdade\Web\Html\cursos.html">Cursos</a></li>
+                <li><a href="H:\faculdade\Web\Html\contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2>Bem-vindo ao CursoComp!</h2>
+    <p>Aprenda programação com meu amigo luizao.</p>
+    <img src="H:\faculdade\Web\Html\luizfernando.jpg" alt="Meu amigão luizao" width="300" height="200">
+
+    <section id="login">
+        <h3>Login para já cursandos</h3>
+        <form action="login.html" method="post">
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <input type="submit" value="Entrar">
+        </form>
+    </section>
+    
+    <section id="cursos">
+        <h3>Nossos Cursos</h3>
+        <ol>
+            <li><a href="curso1.html">Curso 1: Introdução à Programação</a></li>
+            <li><a href="curso2.html">Curso 2: Desenvolvimento Web</a></li>
+            <li><a href="curso3.html">Curso 3: Ciência de Dados</a></li>
+            <li><a href="curso4.html">Curso 4: Inteligência Artificial</a></li>
+            <li><a href="curso5.html">Curso 5: Aprendizado de Máquina</a></li>
+            <li><a href="curso6.html">Curso 6: Desenvolvimento de Jogos</a></li>
+            <li><a href="curso7.html">Curso 7: Aplicativos Móveis</a></li>
+        </ol>
+    </section>
+
+    <section id="noticias">
+        <h3>Últimas Notícias</h3>
+        <article>
+            <h4>Novos cursos disponíveis!</h4>
+            <p>Estamos lançando novos cursos em breve. Fique ligado!</p>
+        </article>
+    </section>
+
+    <section id="Feedback">
+        <h3>Faça o seu feedback do site</h3>
+        <form action="feedback.html" method="post">
+            <label for="escrita">Deixe uma nota e um comentário</label>
+            <select name="avaliacao" id="avaliacao">
+                <option value="1">1 - Muito ruim</option>
+                <option value="2">2 - Ruim</option>
+                <option value="3">3 - Regular</option>
+                <option value="4">4 - Bom</option>
+                <option value="5">5 - Excelente</option>
+            </select>
+            <label for="feedback">Seu feedback:</label>
+            <textarea id="feedback" name="feedback" rows="4" cols="50" required></textarea>
+            <br>
+            <input type="submit" value="Enviar">
+        </form>
+        <p>Seu feedback é muito importante para nós!</p>
+        <p>Se você tiver alguma dúvida ou sugestão, não hesite em entrar em contato.</p>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2023 CursoComp. Todos os direitos reservados.</p>
+    </footer>.
+</body>
+</html>
