@@ -4,26 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CursoComp</title>
-    <link rel="stylesheet" href="princiapl.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <header class="navegationHeader">
-      <nav class="navegationNav">
-        <ul class="navegationList">
+    <header class="navigationHeader">
+      <nav class="navigationNav">
+        <ul class="navigationList">
           <li><a href="/forum">Forum</a></li>
           <li><a href="/stats">Stats</a></li>
           <li><a href="/submit">Submit</a></li>
-          <li><a href="/login">Login</a></li>
-          <li><a href="/join">Join</a></li>
         </ul>
-        <ul>
-          <li><a href="/login">Login</a></li>
-          <li><a href="/join">Join</a></li>
-        </ul>
-        <div>
+  
+        <div class="navigationSearch">
           <input
-            class="MainNavigation_search_box__UUnYc back_form"
+            class="MainNavigation_search_box back_form"
             aria-label="Search"
             tabindex="1"
             type="search"
@@ -33,29 +28,33 @@
             value=""
           />
         </div>
+  
+        <ul class="navigationList">
+          <li><a href="/login">Login</a></li>
+          <li><a href="/join">Join</a></li>
+        </ul>
       </nav>
     </header>
 
-    <h2>Bem-vindo ao CursoComp!</h2>
-    <p>Aprenda programação com meu amigo luizao.</p>
-    <img
-      src="H:\faculdade\Web\Html\luizfernando.jpg"
-      alt="Meu amigão luizao"
-      width="300"
-      height="200"
-    />
-
-    <section id="login">
-      <h3>Login para já cursandos</h3>
-      <form action="login.html" method="post">
-        <label for="username">Usuário:</label>
-        <input type="text" id="username" name="username" required />
-        <br />
-        <label for="password">Senha:</label>
-        <input type="password" id="password" name="password" required />
-        <br />
-        <input type="submit" value="Entrar" />
-      </form>
+    <section id="navWest">
+      <nav class="navigationWest">
+        <ul class="navigationWestList">
+          <img src = "Mainquest1_Icon.webp" alt = "finalfantasy" width = "100" height = "100"> 
+          <li><a href="/paginaPrincipal">Página Principal</a></li>
+          <li><a href="/classes">Classes</a></li>
+          <li><a href="/jobs">Jobs</a></li>
+          <li><a href="/crafting">Crafting</a></li>
+          <li><a href="/gathering">Gathering</a></li>
+          <li><a href="/quest">Quest</a></li>
+          <li><a href="/items">Items</a></li>
+          <li><a href="/locations">Locations</a></li>
+          <li><a href="/dungeons">Dungeons</a></li>
+          <li><a href="/trials">Trials</a></li>
+          <li><a href="/raids">Raids</a></li>
+          <li><a href="/fieldOperations">Field Operations</a></li>
+          <li><a href="/lifestyleContent">Lifestyle Content</a></li>
+        </ul>
+      </nav>
     </section>
 
     <section id="cursos">

@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Open principal.html",
-            "file": "/home/arthur/faculdade/Web/Meu/principal.html"
+            "file": "H:/faculdade/Web/KingdownGame/principal.html"
         }
     ]
 }
